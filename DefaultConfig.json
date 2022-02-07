@@ -1,0 +1,10 @@
+{
+    "Name": "Quick Nav Tiles",
+    "Sections": [{
+        "Name": "Websites",
+        "QuickNavLinks": [{
+            "Name": "Google",
+            "Link": "https://www.google.co.uk"
+        }]
+    }]
+}

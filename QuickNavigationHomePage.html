@@ -2,14 +2,15 @@
 <html>
 
 <head>
-    <title>Quick Navigation</title>
+    <title id="quick_nav_page_title">Quick Navigation</title>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="QuickNavigationConfig.js"></script>
+    <script src="QuickNavigationElementCreation.js"></script>
     <script src="QuickNavigationConfigManagement.js"></script>
 </head>
 
 <body class="background_color">
-    <div class="row bottom_border bottom_spacer">
+    <div class="row bottom_border bottom_spacer detail_color">
         <div id="quick_nav_title" class="header_text_color detail_color"></div>
         <select id="config_select" class="detail_color quick_nav_scrollbar_default" size="8">
         </select>
@@ -27,22 +28,7 @@
         <input id="quick_nav_config_upload" type='file' />
         <button id="quick_nav_config_submit_button" class="quick_nav_button button_gradient small_header_text_color">Use Config!</button>
     </div>
-    <div class="quick_nav_content_area">
-        <div class="section_container">
-            <div class="section_header">
-                <h1 class="section_header_h1 small_header_text_color">Section Title</h1>
-            </div>
-            <div class="section_elements">
-                <a class="quick_nav_box"></a>
-                <a class="quick_nav_box"></a>
-                <a class="quick_nav_box"></a>
-                <a class="quick_nav_box"></a>
-                <a class="quick_nav_box"></a>
-                <a class="quick_nav_box"></a>
-                <a class="quick_nav_box"></a>
-                <a class="quick_nav_box_add_element header_text_color quick_nav_center_text"> + </a>
-            </div>
-        </div>
+    <div id="quick_nav_section_container" class="quick_nav_content_area">
     </div>
 </body>
 
