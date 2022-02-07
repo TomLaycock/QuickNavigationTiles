@@ -161,6 +161,7 @@ function InitialiseQuickNavigation() {
         if (configName != "Default") {
             var LoadedConfig = JSON.parse(window.localStorage.getItem(configName));
             Configs[configName] = LoadedConfig;
+            ConfigNames.push(configName);
             console.log(LoadedConfig);
             addConfigToSelector(configName, false, false);
             if (configName == CurrentActiveConfig) {

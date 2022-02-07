@@ -1,10 +1,318 @@
 {
     "Name": "Anime",
     "Sections": [{
-        "Name": "Websites",
-        "QuickNavLinks": [{
-            "Name": "Google",
-            "Link": "https://www.google.co.uk"
-        }]
-    }]
+            "Name": "Common",
+            "QuickNavLinks": [{
+                    "Name": "Google",
+                    "Link": "https://www.google.co.uk",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Youtube",
+                    "Link": "https://www.youtube.com",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Gmail",
+                    "Link": "https://mail.google.com/mail",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Facebook",
+                    "Link": "https://www.facebook.com/",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Elon Musk",
+                    "Link": "https://twitter.com/elonmusk",
+                    "Target": "_blank"
+                }
+            ]
+        },
+        {
+            "Name": "Favorite Anime",
+            "QuickNavLinks": [{
+                    "Name": "Wise Mans Grandchild (DUB)",
+                    "Link": "https://9anime.to/watch/wise-mans-grandchild-dub.k5o9/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Wise Mans Grandchild",
+                    "Link": "https://9anime.to/watch/wise-mans-grandchild.40wx/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Pupil of the Wise Man (DUB)",
+                    "Link": "https://9anime.to/watch/she-professed-herself-pupil-of-the-wise-man-dub.zll9w/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Pupil of the Wise Man",
+                    "Link": "https://9anime.to/watch/she-professed-herself-pupil-of-the-wise-man.54nm/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Knights and Magic (DUB)",
+                    "Link": "https://9anime.to/watch/knights-magic-dub.rvqo/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Knights and Magic",
+                    "Link": "https://9anime.to/watch/knights-magic.o69y/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Worlds Finest Assassin (DUB)",
+                    "Link": "https://9anime.to/watch/the-worlds-finest-assassin-gets-reincarnated-in-another-world-as-an-aristocrat-dub.vvvml/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Worlds Finest Assassin",
+                    "Link": "https://9anime.to/watch/the-worlds-finest-assassin-gets-reincarnated-in-another-world-as-an-aristocrat.z0qm/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Another World Smartphone (DUB)",
+                    "Link": "https://9anime.to/watch/in-another-world-with-my-smartphone-dub.7p87/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Another World Smartphone",
+                    "Link": "https://9anime.to/watch/in-another-world-with-my-smartphone.48qx/ep-1",
+                    "Target": "_blank"
+                }
+            ]
+        },
+        {
+            "Name": "Sword Art Online",
+            "QuickNavLinks": [{
+                    "Name": "Season 1 (DUB)",
+                    "Link": "https://9anime.to/watch/sword-art-online-dub.nw4k/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Season 1",
+                    "Link": "https://9anime.to/watch/sword-art-online.5y9/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Progressive Aria (DUB)",
+                    "Link": "",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Progressive Aria",
+                    "Link": "",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Extra Edition (DUB)",
+                    "Link": "https://9anime.to/watch/sword-art-online-extra-edition-dub.7xy6/ep-full",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Extra Edition",
+                    "Link": "https://9anime.to/watch/sword-art-online-extra-edition.7268/ep-full",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Season 2 (DUB)",
+                    "Link": "https://9anime.to/watch/sword-art-online-ii-dub.6xyp/ep-24",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Season 2",
+                    "Link": "https://9anime.to/watch/sword-art-online-ii.6y0/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Gun Gale Online (DUB)",
+                    "Link": "https://9anime.to/watch/sword-art-online-alternative-gun-gale-online-dub.1m8w/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Gun Gale Online",
+                    "Link": "https://9anime.to/watch/sword-art-online-alternative-gun-gale-online.m7j7/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "GGO Refrain (DUB)",
+                    "Link": "https://9anime.to/watch/sword-art-online-alternative-gun-gale-online-refrain-dub.mxqv/ep-full",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "GGO Refrain",
+                    "Link": "https://9anime.to/watch/sword-art-online-alternative-gun-gale-online-refrain.v3n4/ep-full",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Ordinal Scale (DUB)",
+                    "Link": "https://9anime.to/watch/sword-art-online-the-movie-ordinal-scale-dub.x03q/ep-full",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Ordinal Scale",
+                    "Link": "https://9anime.to/watch/sword-art-online-the-movie-ordinal-scale.jz24/ep-full",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Alicization (DUB)",
+                    "Link": "https://9anime.to/watch/sword-art-online-alicization-dub.orwj/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Alicization",
+                    "Link": "https://9anime.to/watch/sword-art-online-alicization.l7xm/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "War of Underworld (DUB)",
+                    "Link": "https://9anime.to/watch/sword-art-online-alicization-war-of-underworld-dub.0jn7/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "War of Underworld",
+                    "Link": "https://9anime.to/watch/sword-art-online-alicization-war-of-underworld.knq9/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "War of Underworld Part 2 (DUB)",
+                    "Link": "https://9anime.to/watch/sword-art-online-alicization-war-of-underworld-part-2-dub.m05p/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "War of Underworld Part 2",
+                    "Link": "https://9anime.to/watch/sword-art-online-alicization-war-of-underworld-part-2.qoov/ep-1",
+                    "Target": "_blank"
+                }
+            ]
+        },
+        {
+            "Name": "Attack On Titan",
+            "QuickNavLinks": [{
+                    "Name": "Season 1 (DUB)",
+                    "Link": "https://9anime.to/watch/attack-on-titan-dub.m3zv/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Season 1",
+                    "Link": "https://9anime.to/watch/attack-on-titan.kww/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Season 2 (DUB)",
+                    "Link": "https://9anime.to/watch/attack-on-titan-season-2-dub.q9jv/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Season 2",
+                    "Link": "https://9anime.to/watch/attack-on-titan-season-2.3v16/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Season 3 (DUB)",
+                    "Link": "https://9anime.to/watch/attack-on-titan-season-3-dub.3n8y/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Season 3",
+                    "Link": "https://9anime.to/watch/attack-on-titan-season-3.rvym/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Season 3 Part 2 (DUB)",
+                    "Link": "https://9anime.to/watch/attack-on-titan-season-3-part-2-dub.j423/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Season 3 Part 2",
+                    "Link": "https://9anime.to/watch/attack-on-titan-season-3-part-2.qwnj/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Final Season (DUB)",
+                    "Link": "https://9anime.to/watch/attack-on-titan-final-season-dub.r57y/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Final Season",
+                    "Link": "https://9anime.to/watch/attack-on-titan-final-season.k524/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Final Season Part 2 (DUB)",
+                    "Link": "",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Final Season Part 2",
+                    "Link": "https://9anime.to/watch/attack-on-titan-final-season-part-2.wrmo/ep-1",
+                    "Target": "_blank"
+                }
+            ]
+        },
+        {
+            "Name": "Mushoku Tensei",
+            "QuickNavLinks": [{
+                    "Name": "Mushoku Tensei (DUB)",
+                    "Link": "https://9anime.to/watch/mushoku-tensei-jobless-reincarnation-dub.o135/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Mushoku Tensei",
+                    "Link": "https://9anime.to/watch/mushoku-tensei-jobless-reincarnation.k57v/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Mushoku Tensei S2 (DUB)",
+                    "Link": "https://9anime.to/watch/mushoku-tensei-jobless-reincarnation-part-2-dub.7jj1j/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Mushoku Tensei S2",
+                    "Link": "https://9anime.to/watch/mushoku-tensei-jobless-reincarnation-cour-2.4k3m/ep-1",
+                    "Target": "_blank"
+                }
+            ]
+        },
+        {
+            "Name": "Saga of Tanya the Evil",
+            "QuickNavLinks": [{
+                    "Name": "Season 1 (DUB)",
+                    "Link": "https://9anime.to/watch/saga-of-tanya-the-evil-dub.k079/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Season 1",
+                    "Link": "https://9anime.to/watch/saga-of-tanya-the-evil.z8x2/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Movie",
+                    "Link": "https://9anime.to/watch/saga-of-tanya-the-evil-the-movie.jy28/ep-full",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Operation Desert Pasta",
+                    "Link": "https://9anime.to/watch/saga-of-tanya-the-evil-operation-desert-pasta.llpnn/ep-full",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Youjo Shenki",
+                    "Link": "https://9anime.to/watch/youjo-shenki.zz22/ep-1",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Movie: Manner Eizou",
+                    "Link": "https://9anime.to/watch/youjo-senki-movie-manner-eizou.j408/ep-full",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Senkyou Houkoku",
+                    "Link": "https://9anime.to/watch/youjo-senki-senkyou-houkoku.340y/ep-full",
+                    "Target": "_blank"
+                }
+            ]
+        }
+    ]
 }
