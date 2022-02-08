@@ -1,5 +1,6 @@
 function CreateSection(SectionName) {
     var newSection = document.createElement("div");
+    newSection.id = SectionName;
     newSection.classList.add("section_container");
 
     var newSectionHeader = document.createElement("div");
@@ -49,7 +50,7 @@ function AddNavLinkToSection(Section, NavLink) {
     section_elements.appendChild(newQuickNavLinkContianer);
 }
 
-function AddFinalDetailsToSection(Section) {
+function AddInsertQuickNavLinkButton(Section) {
     var section_elements = Section.children[1]
 
     var newQuickNavLink = document.createElement("a");
@@ -59,6 +60,8 @@ function AddFinalDetailsToSection(Section) {
     newQuickNavLink.innerHTML = "+";
 
     section_elements.appendChild(newQuickNavLink);
+
+    return newQuickNavLink;
 }
 
 /*

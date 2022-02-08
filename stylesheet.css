@@ -79,6 +79,7 @@ body {
 }
 
 .quick_nav_box_add_element {
+    order: 1;
     width: 50px;
     height: 50px;
     line-height: 45px;
