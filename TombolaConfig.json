@@ -9,25 +9,18 @@
             }]
         },
         {
+            "Name": "Websites",
+            "QuickNavLinks": [{
+                "Name": "IGM - DEV",
+                "Link": "https://dev-igm.tombola.com/CountrySelect",
+                "Target": "_self"
+            }]
+        },
+        {
             "Name": "Tombola Services",
             "QuickNavLinks": [{
-                    "Name": "Bamboo HR",
-                    "Link": "https://tombola.bamboohr.com/home/",
-                    "Target": "_self"
-                },
-                {
-                    "Name": "Sage",
-                    "Link": "https://id.sage.com/login?state=hKFo2SBHclVwaC16R2w2OTZKOW1LdDFmN0FGUms4UnlBMFFUV6FupWxvZ2luo3RpZNkgMElHSXQ2MV9TRVNyNUVXWHFCZDZ3MDNCUHljNlp5M3OjY2lk2SBwbVJXY3J3VDV5WHpqaFRFUDluNzR1R01wNkVPcnBDdw&client=pmRWcrwT5yXzjhTEP9n74uGMp6EOrpCw&protocol=oauth2&nonce=70c2e0026a46ab3e576cbe6b3476c9c3&response_type=code&redirect_uri=https%3A%2F%2Feol.sage.co.uk%2Fapi%2F1.0%2Fcloud-id-employee%2Fcallback&scope=openid%20email#/login",
-                    "Target": "_self"
-                },
-                {
-                    "Name": "Umbraco",
-                    "Link": "https://cms-int-web.dev.tombola.com/umbraco#/login/false?returnPath=%252Fumbraco",
-                    "Target": "_self"
-                },
-                {
-                    "Name": "IGM - DEV",
-                    "Link": "https://dev-igm.tombola.com/CountrySelect",
+                    "Name": "Tombola Git Hub",
+                    "Link": "https://github.com/tombolaltd",
                     "Target": "_self"
                 },
                 {
@@ -41,13 +34,28 @@
                     "Target": "_self"
                 },
                 {
-                    "Name": "Octopus Deploy",
-                    "Link": "https://octopus.tombola.com/app#/users/sign-in",
+                    "Name": "Bamboo HR",
+                    "Link": "https://tombola.bamboohr.com/home/",
+                    "Target": "_self"
+                },
+                {
+                    "Name": "Sage",
+                    "Link": "https://id.sage.com/login?state=hKFo2SBHclVwaC16R2w2OTZKOW1LdDFmN0FGUms4UnlBMFFUV6FupWxvZ2luo3RpZNkgMElHSXQ2MV9TRVNyNUVXWHFCZDZ3MDNCUHljNlp5M3OjY2lk2SBwbVJXY3J3VDV5WHpqaFRFUDluNzR1R01wNkVPcnBDdw&client=pmRWcrwT5yXzjhTEP9n74uGMp6EOrpCw&protocol=oauth2&nonce=70c2e0026a46ab3e576cbe6b3476c9c3&response_type=code&redirect_uri=https%3A%2F%2Feol.sage.co.uk%2Fapi%2F1.0%2Fcloud-id-employee%2Fcallback&scope=openid%20email#/login",
                     "Target": "_self"
                 },
                 {
                     "Name": "Service Desk",
                     "Link": "https://tombola.atlassian.net/servicedesk/customer/portal/1",
+                    "Target": "_self"
+                },
+                {
+                    "Name": "Octopus Deploy",
+                    "Link": "https://octopus.tombola.com/app#/users/sign-in",
+                    "Target": "_self"
+                },
+                {
+                    "Name": "Umbraco",
+                    "Link": "https://cms-int-web.dev.tombola.com/umbraco#/login/false?returnPath=%252Fumbraco",
                     "Target": "_self"
                 }
             ]
@@ -59,25 +67,6 @@
                 "Link": "https://tombola.atlassian.net/browse/PIT-662",
                 "Target": "_blank"
             }]
-        },
-        {
-            "Name": "How To",
-            "QuickNavLinks": [{
-                    "Name": "Machine Setup",
-                    "Link": "https://tombola.atlassian.net/wiki/spaces/KT/pages/3752984631/Machine+Setup+-+Platform+Int+International",
-                    "Target": "_blank"
-                },
-                {
-                    "Name": "AWS - Accounts",
-                    "Link": "https://tombola.atlassian.net/wiki/spaces/OS/pages/41943106/AWS+-+Logging+in+and+Account+Structure",
-                    "Target": "_blank"
-                },
-                {
-                    "Name": "Database Aliases",
-                    "Link": "https://tombola.atlassian.net/wiki/spaces/KT/pages/1572937/Database+aliases+and+server+names",
-                    "Target": "_blank"
-                }
-            ]
         },
         {
             "Name": "Pull Requests",
@@ -104,6 +93,25 @@
                 {
                     "Name": "IGM DyDB Removing #392",
                     "Link": "https://github.com/tombolaltd/tombola.gamemanagement.web/pull/392",
+                    "Target": "_blank"
+                }
+            ]
+        },
+        {
+            "Name": "How To",
+            "QuickNavLinks": [{
+                    "Name": "Machine Setup",
+                    "Link": "https://tombola.atlassian.net/wiki/spaces/KT/pages/3752984631/Machine+Setup+-+Platform+Int+International",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "AWS - Accounts",
+                    "Link": "https://tombola.atlassian.net/wiki/spaces/OS/pages/41943106/AWS+-+Logging+in+and+Account+Structure",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Database Aliases",
+                    "Link": "https://tombola.atlassian.net/wiki/spaces/KT/pages/1572937/Database+aliases+and+server+names",
                     "Target": "_blank"
                 }
             ]

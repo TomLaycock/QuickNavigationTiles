@@ -50,6 +50,7 @@ function convertJSONtoConfig(configJSON) {
 }
 
 function activateConfig(configName, setAsActiveConfig = true) {
+    console.log("ACTIVATING CONFIG: " + configName);
     document.getElementById("quick_nav_title").innerHTML = Configs[configName].Name;
 
     var container = document.getElementById("quick_nav_section_container");
@@ -187,8 +188,7 @@ window.onload = function() {
         button.addEventListener("click", toggleLoadConfigMenu);
     });
 
-    const configSelector = document.getElementById("config_select");
-
+    let configSelector = document.getElementById("config_select");
     configSelector.addEventListener('change', (event) => {
         activateConfig(event.target.value);
     });
