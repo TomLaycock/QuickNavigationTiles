@@ -1,5 +1,6 @@
 var Configs = {}
 var ConfigNames = []
+var FileToDownload = null;
 
 function readFile(file, onLoadCallback) {
     var reader = new FileReader();
@@ -58,24 +59,6 @@ function convertJSONtoConfig(configJSON) {
     });
 
     return config;
-}
-
-function AddQuickNavButtonToSection(SectionName) {
-    var CurrentActiveConfig = window.localStorage.getItem("CurrentConfig");
-
-    var NewNavLink = new QuickNavLink();
-    NewNavLink.Name = "Test";
-    NewNavLink.Link = "https://www.youtube.com/";
-    NewNavLink.Target = "_blank";
-
-    var SecctionFound = Configs[CurrentActiveConfig].Sections.find(element => element.Name == SectionName);
-    SecctionFound.QuickNavLinks.push(NewNavLink);
-
-    console.log(Configs[CurrentActiveConfig]);
-    window.localStorage.setItem(CurrentActiveConfig, JSON.stringify(Configs[CurrentActiveConfig]));
-
-    var Section = document.getElementById(SectionName);
-    AddNavLinkToSection(Section, NewNavLink);
 }
 
 function activateConfig(configName, setAsActiveConfig = true) {
@@ -160,20 +143,6 @@ function UpdateLocalConfigStorage() {
     window.localStorage.setItem("ConfigNames", JSON.stringify(ConfigNames));
 }
 
-var LoadConfigMenuOpen = false
-
-function toggleLoadConfigMenu() {
-    LoadConfigMenuOpen = !LoadConfigMenuOpen;
-
-    let quick_nav_load_config_menu = document.getElementById("quick_nav_load_config_menu");
-
-    if (LoadConfigMenuOpen) {
-        quick_nav_load_config_menu.style.display = "flex";
-    } else {
-        quick_nav_load_config_menu.style.display = "none";
-    }
-}
-
 function InitialiseQuickNavigation() {
     var CurrentConfigs = JSON.parse(window.localStorage.getItem("ConfigNames"));
     var ConfigNameDuplicateCheck = {}
@@ -197,6 +166,100 @@ function InitialiseQuickNavigation() {
     });
 }
 
+function SaveJsonToFileAndSetAsDownload() {
+    var CurrentConfigName = window.localStorage.getItem("CurrentConfig");
+    var ConfigJsonData = window.localStorage.getItem(CurrentConfigName);
+    var data = new Blob([ConfigJsonData], { type: 'application/json' });
+
+    if (FileToDownload !== null) {
+        window.URL.revokeObjectURL(FileToDownload);
+    }
+
+    FileToDownload = window.URL.createObjectURL(data);
+
+    var ExportButton = document.getElementById("masked_download_button");
+    ExportButton.href = FileToDownload;
+    ExportButton.download = CurrentConfigName;
+    ExportButton.click();
+}
+
+var LoadConfigMenuOpen = false
+
+function toggleLoadConfigMenu(useToggle = false) {
+    if (useToggle) {
+        closeAllMenus(0);
+    }
+
+    LoadConfigMenuOpen = !LoadConfigMenuOpen;
+
+    let quick_nav_load_config_menu = document.getElementById("quick_nav_load_config_menu");
+
+    if (LoadConfigMenuOpen) {
+        quick_nav_load_config_menu.style.display = "flex";
+    } else {
+        quick_nav_load_config_menu.style.display = "none";
+    }
+}
+
+var addSectionMenuOpen = false
+
+function toggleAddSectionMenu(useToggle = false) {
+    if (useToggle) {
+        closeAllMenus(1);
+    }
+
+    addSectionMenuOpen = !addSectionMenuOpen;
+
+    let quick_nav_menu = document.getElementById("quick_nav_add_section_menu");
+
+    if (addSectionMenuOpen) {
+        quick_nav_menu.style.display = "flex";
+    } else {
+        quick_nav_menu.style.display = "none";
+    }
+}
+
+function closeAllMenus(callerId = -1) {
+    if (LoadConfigMenuOpen && callerId != 0) {
+        toggleLoadConfigMenu(true);
+    }
+    if (addSectionMenuOpen && callerId != 1) {
+        toggleAddSectionMenu(true);
+    }
+}
+
+function AddQuickNavButtonToSection(SectionName) {
+    var CurrentActiveConfig = window.localStorage.getItem("CurrentConfig");
+
+    var NewNavLink = new QuickNavLink();
+    NewNavLink.Name = "Test";
+    NewNavLink.Link = "https://www.youtube.com/";
+    NewNavLink.Target = "_blank";
+
+    var SecctionFound = Configs[CurrentActiveConfig].Sections.find(element => element.Name == SectionName);
+    SecctionFound.QuickNavLinks.push(NewNavLink);
+
+    console.log(Configs[CurrentActiveConfig]);
+    window.localStorage.setItem(CurrentActiveConfig, JSON.stringify(Configs[CurrentActiveConfig]));
+
+    var Section = document.getElementById(SectionName);
+    AddNavLinkToSection(Section, NewNavLink);
+}
+
+function addSection() {
+    var CurrentActiveConfig = window.localStorage.getItem("CurrentConfig");
+
+    var ValueObject = document.getElementById("quick_nav_add_section_text");
+
+    var SectionToAdd = new Section();
+    SectionToAdd.Name = ValueObject.value;
+
+    Configs[CurrentActiveConfig].Sections.push(SectionToAdd);
+
+    activateConfig(CurrentActiveConfig);
+    ValueObject.value = "";
+}
+
 window.onload = function() {
     createDefaultConfig();
     InitialiseQuickNavigation();
@@ -207,9 +270,18 @@ window.onload = function() {
     let LoadConfigMenuButton = document.getElementById("quick_nav_load_config_button");
     LoadConfigMenuButton.addEventListener("click", toggleLoadConfigMenu);
 
+    let ConfigExportButton = document.getElementById("download_config_button");
+    ConfigExportButton.addEventListener("click", SaveJsonToFileAndSetAsDownload);
+
+    let AddSectionMenuButton = document.getElementById("quick_nav_add_section_button");
+    AddSectionMenuButton.addEventListener("click", toggleAddSectionMenu);
+
+    let AddSectionToConfigButton = document.getElementById("quick_nav_add_section_to_config_button");
+    AddSectionToConfigButton.addEventListener("click", addSection);
+
     let CloseButtons = document.getElementsByClassName("close_button");
     Array.from(CloseButtons).forEach(function(button) {
-        button.addEventListener("click", toggleLoadConfigMenu);
+        button.addEventListener("click", closeAllMenus);
     });
 
     let configSelector = document.getElementById("config_select");

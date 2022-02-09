@@ -63,10 +63,16 @@
         {
             "Name": "Atlassian / Jira - Tickets",
             "QuickNavLinks": [{
-                "Name": "Game Management",
-                "Link": "https://tombola.atlassian.net/browse/PIT-662",
-                "Target": "_blank"
-            }]
+                    "Name": "Backlog",
+                    "Link": "https://tombola.atlassian.net/jira/software/projects/PIT/boards/453/backlog",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "Game Management",
+                    "Link": "https://tombola.atlassian.net/browse/PIT-662",
+                    "Target": "_blank"
+                }
+            ]
         },
         {
             "Name": "Pull Requests",
@@ -112,6 +118,16 @@
                 {
                     "Name": "Database Aliases",
                     "Link": "https://tombola.atlassian.net/wiki/spaces/KT/pages/1572937/Database+aliases+and+server+names",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "NL Help",
+                    "Link": "https://tombola.atlassian.net/wiki/spaces/PI/pages/3001188466/Netherlands+Nederland",
+                    "Target": "_blank"
+                },
+                {
+                    "Name": "DK Help",
+                    "Link": "https://tombola.atlassian.net/wiki/spaces/PI/pages/2739044418/Denmark+Danmark",
                     "Target": "_blank"
                 }
             ]

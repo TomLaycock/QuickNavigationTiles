@@ -15,21 +15,57 @@
         <select id="config_select" class="detail_color quick_nav_scrollbar_default" size="8">
         </select>
         <div id="quick_nav_nav_bar" class="header_text_color detail_color">
+            <a id="download_config_button" class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Export Config</a>
             <a id="quick_nav_load_config_button" class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Load New Config</a>
-            <a class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Add Section</a>
+            <a id="quick_nav_add_section_button" class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Manage Sections</a>
             <a class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Settings</a>
         </div>
     </div>
-    <div id="quick_nav_load_config_menu" class="popup_menu">
-        <div class="row content_center">
-            <h1 class="header_text_color quick_nav_center_text">Load Config</h1>
-            <div class="close_button">X</div>
-        </div>
-        <input id="quick_nav_config_upload" type='file' />
-        <button id="quick_nav_config_submit_button" class="quick_nav_button button_gradient small_header_text_color">Use Config!</button>
-    </div>
     <div id="quick_nav_section_container" class="quick_nav_content_area">
     </div>
+    <!-- POPUP MENUS - MASKED BUTTONS -->
+    <div id="quick_nav_load_config_menu" class="popup_menu">
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">Load Config</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input id="quick_nav_config_upload" type='file' />
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <button id="quick_nav_config_submit_button" class="quick_nav_button button_gradient small_header_text_color">Use Config!</button>
+        </div>
+    </div>
+    <div id="quick_nav_add_section_menu" class="popup_menu">
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">Sections</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div id="quick_nav_add_section_display" class="popup_menu_row popup_menu_row_width_2">
+            <div class="quick_nav_add_section_display_container">
+                <div class="quick_nav_add_section_display_name small_header_text_color">Test Section</div>
+                <div class="quick_nav_add_section_display_button button_gradient quick_nav_center_text small_header_text_color">&#9650;</div>
+                <div class="quick_nav_add_section_display_button button_gradient quick_nav_center_text small_header_text_color">&#9660;</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">Add Section</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input id="quick_nav_add_section_text" class="button_gradient quick_nav_center_text small_header_text_color" placeholder="New Section Name" type='text' />
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <button id="quick_nav_add_section_to_config_button" class="quick_nav_button button_gradient small_header_text_color">Add Section!</button>
+        </div>
+    </div>
+    <a id="masked_download_button" href="" download></a>
 </body>
 
 </html>
