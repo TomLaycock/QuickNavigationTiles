@@ -64,10 +64,10 @@ body {
 }
 
 #quick_nav_title {
-    width: auto;
+    width: calc(100% - 200px);
     min-width: 10%;
-    max-width: 20%;
-    height: auto;
+    height: 50px;
+    top: 0;
     line-height: 50px;
     font-size: 2vw;
     font-weight: bolder;
@@ -104,16 +104,17 @@ body {
 #config_select {
     width: 200px;
     min-width: 200px;
-    height: 50px;
+    height: 53px;
     transition: 0.2s ease;
     border-radius: 0px;
-    border-bottom: 0px;
     border-top: 0px;
 }
 
 #config_select:hover {
-    height: 100px;
+    height: 106px;
+    cursor: pointer;
     transition: 0.2s ease;
+    border-width: 0px 0px 3px 3px;
 }
 
 .quick_nav_option_element {
@@ -121,9 +122,9 @@ body {
     padding: 5px;
 }
 
-#quick_nav_nav_bar {
-    width: auto;
-    height: auto;
+#quick_nav_nav_bar_options {
+    height: 50px;
+    top: 0;
     min-height: 50px;
     display: flex;
     justify-content: right;
@@ -160,6 +161,104 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: start;
+    z-index: 1;
+    margin-top: 60px;
+}
+
+.quick_nav_nav_bar {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+}
+
+.quick-nav-nav-styling {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+}
+
+.quick-nav-12 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.quick-nav-6 {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 1300px) {
+    .quick_nav_button {
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .quick_nav_button {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .quick-nav-md-12 {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .quick-nav-md-12-row {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+    }
+    .nav-position-1 {
+        position: absolute;
+        top: 0px;
+        z-index: 10;
+    }
+    .nav-position-2 {
+        position: absolute;
+        top: 53px;
+        z-index: 9;
+    }
+    #quick_nav_nav_bar_options {
+        justify-content: space-evenly;
+    }
+    .quick_nav_button {
+        margin-right: 0px;
+    }
+    .quick_nav_content_area {
+        margin-top: 110px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .quick-nav-sm-12 {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .quick_nav_button {
+        font-size: 0.8em;
+    }
+    .nav-position-2 {
+        top: 106px;
+    }
+    #quick_nav_title {
+        width: 100%;
+    }
+    #config_select {
+        width: 100%;
+    }
+    .quick_nav_content_area {
+        margin-top: 160px;
+    }
 }
 
 
@@ -180,6 +279,7 @@ body {
     margin-left: calc(50% - 150px);
     margin-right: calc(50% - 150px);
     background-color: #9b9b9b;
+    z-index: 100;
 }
 
 .popup_menu_row {
