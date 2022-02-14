@@ -6,23 +6,18 @@
     "chrome_url_overrides": {
         "newtab": "QuickNavigationHomePage.html"
     },
-    "content_scripts": [{
-        "css": ["stylesheet.css"],
-        "js": ["content.js"],
-        "matches": ["https://www.google.co.uk/"]
-    }],
     "icons": {
-        "16": "/images/get_started16.png",
-        "32": "/images/get_started32.png",
-        "48": "/images/get_started48.png",
-        "128": "/images/get_started128.png"
+        "32": "/IMAGES/QuickNavTiles32.png",
+        "48": "/IMAGES/QuickNavTiles48.png",
+        "64": "/IMAGES/QuickNavTiles64.png",
+        "128": "/IMAGES/QuickNavTiles128.png"
     },
     "action": {
         "default_icon": {
-            "16": "/images/get_started16.png",
-            "32": "/images/get_started32.png",
-            "48": "/images/get_started48.png",
-            "128": "/images/get_started128.png"
+            "32": "/IMAGES/QuickNavTiles32.png",
+            "48": "/IMAGES/QuickNavTiles48.png",
+            "64": "/IMAGES/QuickNavTiles64.png",
+            "128": "/IMAGES/QuickNavTiles128.png"
         }
     }
 }
