@@ -132,11 +132,26 @@ function createDefaultConfig() {
                 "Target": "_self"
             },
             {
+                "Name": "Gmail",
+                "Link": "https://mail.google.com/mail/u/0/#inbox",
+                "Target": "_self"
+            },
+            {
                 "Name": "Youtube",
                 "Link": "https://www.youtube.com",
                 "Target": "_self"
             },
             {
+                "Name": "Netflix",
+                "Link": "https://www.netflix.com/browse",
+                "Target": "_self"
+            }
+        ]
+    };
+
+    var SocialsSection = {
+        "Name": "Socials",
+        "QuickNavLinks": [{
                 "Name": "Facebook",
                 "Link": "https://www.facebook.com",
                 "Target": "_self"
@@ -145,11 +160,17 @@ function createDefaultConfig() {
                 "Name": "Twitter",
                 "Link": "https://www.twitter.com",
                 "Target": "_self"
+            },
+            {
+                "Name": "Instagram",
+                "Link": "https://www.instagram.com",
+                "Target": "_self"
             }
         ]
     };
 
     config.Sections.push(WebsitesSection);
+    config.Sections.push(SocialsSection);
 
     Configs[config.Name] = config;
     ConfigNames.push(config.Name);
