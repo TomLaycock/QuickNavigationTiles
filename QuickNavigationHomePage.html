@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id="quick_nav_page_title">Quick Navigation</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="QuickNavigationConfig.js"></script>
+    <script src="QuickNavigationElementCreation.js"></script>
+    <script src="QuickNavigationConfigManagement.js"></script>
+</head>
+
+<body class="background_color">
+    <!--<div class="row bottom_spacer quick_nav_nav_bar">-->
+    <div class="quick-nav-nav-styling quick-nav-12 quick-nav-md-12 quick-nav-sm-12">
+        <div class="quick-nav-6 quick-nav-md-12-row quick-nav-sm-12 nav-position-1">
+            <div id="quick_nav_title" class="header_text_color detail_color bottom_border"></div>
+            <select id="config_select" class="detail_color quick_nav_scrollbar_default bottom_border" size="8"></select>
+        </div>
+        <div class="quick-nav-6 quick-nav-md-12 quick-nav-sm-12 nav-position-2">
+            <div id="quick_nav_nav_bar_options" class="header_text_color detail_color bottom_border quick-nav-12">
+                <a id="quick_nav_manage_profiles_button" class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Manage Profiles</a>
+                <a id="quick_nav_add_section_button" class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Manage Sections</a>
+                <a class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Settings</a>
+            </div>
+        </div>
+    </div>
+    <!--</div>-->
+    <div id="quick_nav_section_container" class="quick_nav_content_area">
+    </div>
+    <!-- POPUP MENUS - MASKED BUTTONS -->
+    <div id="quick_nav_manage_profiles_menu" class="popup_menu">
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">Manage Profiles</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">New Profile</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input id="quick_nav_new_profile_text" class="button_gradient quick_nav_center_text small_header_text_color" placeholder="New Profile Name" type='text' />
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <button id="quick_nav_new_profile_button" class="quick_nav_button button_gradient small_header_text_color">Create Profile</button>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">Load Profile</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input id="quick_nav_config_upload" type='file' />
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <button id="quick_nav_config_submit_button" class="quick_nav_button button_gradient small_header_text_color">Load Profile</button>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">Save To File</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <button id="download_config_button" class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Export Profile</button>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">Delete Profile</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <button id="quick_nav_delete_profile_button" class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Delete</button>
+        </div>
+    </div>
+    <!-- SECTIONS -->
+    <div id="quick_nav_add_section_menu" class="popup_menu">
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">Sections</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div id="quick_nav_add_section_display" class="popup_menu_row popup_menu_row_width_2">
+            <div class="quick_nav_add_section_display_container">
+                <div class="quick_nav_add_section_display_name small_header_text_color">Test Section</div>
+                <div class="quick_nav_add_section_display_button button_gradient quick_nav_center_text small_header_text_color">&#9650;</div>
+                <div class="quick_nav_add_section_display_button button_gradient quick_nav_center_text small_header_text_color">&#9660;</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">Add Section</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input id="quick_nav_add_section_text" class="button_gradient quick_nav_center_text small_header_text_color" placeholder="New Section Name" type='text' />
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <button id="quick_nav_add_section_to_config_button" class="quick_nav_button button_gradient small_header_text_color">Add Section!</button>
+        </div>
+    </div>
+    <!-- NEW QUICK NAV LINK -->
+    <div id="quick_nav_add_link_menu" class="popup_menu">
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">New Link</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <h1 id="quick_nav_new_link_section_text" class="header_text_color quick_nav_small_title_text"></h1>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <h1 class="header_text_color quick_nav_small_title_text">Link Name</h1>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input id="quick_nav_new_link_name_text" class="button_gradient quick_nav_center_text small_header_text_color quick_nav_general_text_entry" placeholder="Link Name" type='text' />
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <h1 class="header_text_color quick_nav_small_title_text">Link</h1>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input id="quick_nav_new_link_link_text" class="button_gradient quick_nav_center_text small_header_text_color quick_nav_general_text_entry" placeholder="Link To Website" type='text' />
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <h1 class="header_text_color quick_nav_small_title_text">Target</h1>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input id="quick_nav_new_link_target_text" class="button_gradient quick_nav_center_text small_header_text_color quick_nav_general_text_entry" placeholder="E.G. _self or _blank" type='text' />
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <button id="quick_nav_new_link_button" class="quick_nav_button button_gradient small_header_text_color">Create Link</button>
+        </div>
+    </div>
+    <a id="masked_download_button" href="" download></a>
+</body>
+
+</html>

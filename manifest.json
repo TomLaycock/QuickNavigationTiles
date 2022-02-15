@@ -1,0 +1,23 @@
+{
+    "name": "Quick Navigation Tiles",
+    "description": "A google chrome extension for quick navigation tiles from the homepage!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "chrome_url_overrides": {
+        "newtab": "QuickNavigationHomePage.html"
+    },
+    "icons": {
+        "32": "/IMAGES/QuickNavTiles32.png",
+        "48": "/IMAGES/QuickNavTiles48.png",
+        "64": "/IMAGES/QuickNavTiles64.png",
+        "128": "/IMAGES/QuickNavTiles128.png"
+    },
+    "action": {
+        "default_icon": {
+            "32": "/IMAGES/QuickNavTiles32.png",
+            "48": "/IMAGES/QuickNavTiles48.png",
+            "64": "/IMAGES/QuickNavTiles64.png",
+            "128": "/IMAGES/QuickNavTiles128.png"
+        }
+    }
+}
