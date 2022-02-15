@@ -77,7 +77,7 @@ function activateConfig(configName, setAsActiveConfig = true) {
         });
         container.appendChild(newSection);
         var AddQuickNavButton = AddInsertQuickNavLinkButton(newSection);
-        AddQuickNavButton.addEventListener("click", AddQuickNavButtonToSection.bind(this, section.Name));
+        AddQuickNavButton.addEventListener("click", SetValuesForSectionToAddLinkTo.bind(this, section.Name));
     });
 
     if (setAsActiveConfig) {
@@ -105,6 +105,7 @@ function addConfigToSelector(configToAdd, setAsActive = false, updateConfigsInSt
         option.classList.add("small_header_text_color");
         option.classList.add("quick_nav_center_text");
         option.text = configToAdd;
+        option.id = "ID:" + configToAdd;
         configSelector.add(option);
     }
 
@@ -126,10 +127,26 @@ function createDefaultConfig() {
     var WebsitesSection = {
         "Name": "Websites",
         "QuickNavLinks": [{
-            "Name": "Google",
-            "Link": "https://www.google.co.uk",
-            "Target": "_blank"
-        }]
+                "Name": "Google",
+                "Link": "https://www.google.co.uk",
+                "Target": "_self"
+            },
+            {
+                "Name": "Youtube",
+                "Link": "https://www.youtube.com",
+                "Target": "_self"
+            },
+            {
+                "Name": "Facebook",
+                "Link": "https://www.facebook.com",
+                "Target": "_self"
+            },
+            {
+                "Name": "Twitter",
+                "Link": "https://www.twitter.com",
+                "Target": "_self"
+            }
+        ]
     };
 
     config.Sections.push(WebsitesSection);
@@ -141,6 +158,32 @@ function createDefaultConfig() {
 
 function UpdateLocalConfigStorage() {
     window.localStorage.setItem("ConfigNames", JSON.stringify(ConfigNames));
+}
+
+function DeleteProfile() {
+    var CurrentActiveConfig = window.localStorage.getItem("CurrentConfig");
+
+    if (CurrentActiveConfig == "Default") {
+        return;
+    }
+
+    var newConfigNames = []
+    ConfigNames.forEach(element => {
+        if (element != CurrentActiveConfig) {
+            newConfigNames.push(element);
+        }
+    });
+
+    ConfigNames = newConfigNames;
+    UpdateLocalConfigStorage();
+
+    var elementToDelete = document.getElementById("ID:" + CurrentActiveConfig);
+    elementToDelete.remove();
+
+    window.localStorage.removeItem(CurrentActiveConfig);
+
+    activateConfig("Default");
+    closeAllMenus();
 }
 
 function InitialiseQuickNavigation() {
@@ -192,12 +235,12 @@ function toggleLoadConfigMenu(useToggle = false) {
 
     LoadConfigMenuOpen = !LoadConfigMenuOpen;
 
-    let quick_nav_load_config_menu = document.getElementById("quick_nav_load_config_menu");
+    let quick_nav_manage_profiles_menu = document.getElementById("quick_nav_manage_profiles_menu");
 
     if (LoadConfigMenuOpen) {
-        quick_nav_load_config_menu.style.display = "flex";
+        quick_nav_manage_profiles_menu.style.display = "flex";
     } else {
-        quick_nav_load_config_menu.style.display = "none";
+        quick_nav_manage_profiles_menu.style.display = "none";
     }
 }
 
@@ -219,6 +262,24 @@ function toggleAddSectionMenu(useToggle = false) {
     }
 }
 
+var NewLinkMenuOpen = false
+
+function toggleNewLinkMenu(useToggle = false) {
+    if (useToggle) {
+        closeAllMenus(2);
+    }
+
+    NewLinkMenuOpen = !NewLinkMenuOpen;
+
+    let quick_nav_menu = document.getElementById("quick_nav_add_link_menu");
+
+    if (NewLinkMenuOpen) {
+        quick_nav_menu.style.display = "flex";
+    } else {
+        quick_nav_menu.style.display = "none";
+    }
+}
+
 function closeAllMenus(callerId = -1) {
     if (LoadConfigMenuOpen && callerId != 0) {
         toggleLoadConfigMenu(true);
@@ -226,15 +287,50 @@ function closeAllMenus(callerId = -1) {
     if (addSectionMenuOpen && callerId != 1) {
         toggleAddSectionMenu(true);
     }
+    if (NewLinkMenuOpen && callerId != 2) {
+        toggleNewLinkMenu(true);
+    }
+}
+
+function SetValuesForSectionToAddLinkTo(SectionName) {
+    var SectionToAddLinkTo = document.getElementById("quick_nav_new_link_section_text");
+    SectionToAddLinkTo.innerHTML = "Section: " + SectionName;
+
+    var CreateNewLinkButton = document.getElementById("quick_nav_new_link_button");
+    //CreateNewLinkButton.removeEventListener("click", AddQuickNavButtonToSection.bind(this, PrevSectionName), true);
+    //CreateNewLinkButton.addEventListener("click", AddQuickNavButtonToSection.bind(this, SectionName));
+    CreateNewLinkButton.onclick = function() {
+        AddQuickNavButtonToSection(SectionName);
+    }
+
+    if (!NewLinkMenuOpen) {
+        toggleNewLinkMenu();
+    }
 }
 
 function AddQuickNavButtonToSection(SectionName) {
     var CurrentActiveConfig = window.localStorage.getItem("CurrentConfig");
 
     var NewNavLink = new QuickNavLink();
-    NewNavLink.Name = "Test";
-    NewNavLink.Link = "https://www.youtube.com/";
-    NewNavLink.Target = "_blank";
+
+    var NameElement = document.getElementById("quick_nav_new_link_name_text");
+    NewNavLink.Name = NameElement.value;
+    NameElement.value = "";
+
+    var LinkElement = document.getElementById("quick_nav_new_link_link_text");
+    var LinkElementValue = LinkElement.value;
+    if (!LinkElementValue.includes("https://")) {
+        LinkElementValue = "https://" + LinkElementValue;
+    }
+    NewNavLink.Link = LinkElementValue;
+    LinkElement.value = "";
+
+    var NewTarget = document.getElementById("quick_nav_new_link_target_text");
+    if (!(NewTarget.value == "_self" || NewTarget.value == "_blank")) {
+        NewTarget.value = "_blank";
+    }
+    NewNavLink.Target = NewTarget.value;
+    NewTarget.value = "";
 
     var SecctionFound = Configs[CurrentActiveConfig].Sections.find(element => element.Name == SectionName);
     SecctionFound.QuickNavLinks.push(NewNavLink);
@@ -244,6 +340,8 @@ function AddQuickNavButtonToSection(SectionName) {
 
     var Section = document.getElementById(SectionName);
     AddNavLinkToSection(Section, NewNavLink);
+
+    closeAllMenus();
 }
 
 function addSection() {
@@ -256,8 +354,42 @@ function addSection() {
 
     Configs[CurrentActiveConfig].Sections.push(SectionToAdd);
 
+    window.localStorage.setItem(CurrentActiveConfig, JSON.stringify(Configs[CurrentActiveConfig]));
+
     activateConfig(CurrentActiveConfig);
     ValueObject.value = "";
+}
+
+function NewProfile() {
+    var ValueObject = document.getElementById("quick_nav_new_profile_text");
+
+    var NewConfig = new Config();
+    NewConfig.Name = ValueObject.value;
+
+    var AddNameToConfigNames = true;
+    ConfigNames.forEach(value => {
+        if (NewConfig.Name == value) {
+            AddNameToConfigNames = false;
+        }
+    });
+
+    if (AddNameToConfigNames == false) {
+        return;
+    }
+
+    Configs[NewConfig.Name] = NewConfig;
+
+    if (AddNameToConfigNames) {
+        ConfigNames.push(NewConfig.Name);
+    }
+
+    window.localStorage.setItem(NewConfig.Name, JSON.stringify(NewConfig));
+
+    addConfigToSelector(NewConfig.Name, true, true);
+
+    ValueObject.value = "";
+
+    closeAllMenus();
 }
 
 window.onload = function() {
@@ -267,7 +399,7 @@ window.onload = function() {
     let ConfigSubmitButton = document.getElementById("quick_nav_config_submit_button");
     ConfigSubmitButton.addEventListener("click", loadConfig);
 
-    let LoadConfigMenuButton = document.getElementById("quick_nav_load_config_button");
+    let LoadConfigMenuButton = document.getElementById("quick_nav_manage_profiles_button");
     LoadConfigMenuButton.addEventListener("click", toggleLoadConfigMenu);
 
     let ConfigExportButton = document.getElementById("download_config_button");
@@ -278,6 +410,12 @@ window.onload = function() {
 
     let AddSectionToConfigButton = document.getElementById("quick_nav_add_section_to_config_button");
     AddSectionToConfigButton.addEventListener("click", addSection);
+
+    let DeleteProfileButton = document.getElementById("quick_nav_delete_profile_button");
+    DeleteProfileButton.addEventListener("click", DeleteProfile);
+
+    let NewProfileButton = document.getElementById("quick_nav_new_profile_button");
+    NewProfileButton.addEventListener("click", NewProfile);
 
     let CloseButtons = document.getElementsByClassName("close_button");
     Array.from(CloseButtons).forEach(function(button) {
