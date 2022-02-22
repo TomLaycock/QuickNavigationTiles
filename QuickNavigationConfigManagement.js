@@ -2,42 +2,79 @@ var Configs = {}
 var ConfigNames = []
 var FileToDownload = null;
 
+/* BASE FUNCTIONS */
+function GetElmByID(ElementId) {
+    return document.getElementById(ElementId);
+}
+
+function GetElmsByCls(ElementClassName) {
+    return document.getElementsByClassName(ElementClassName);
+}
+
+function AddClickListnerToButton(ButtonToAddTo, FunctionToCall) {
+    ButtonToAddTo.addEventListener("click", FunctionToCall);
+}
+
+function ArrayContains(ArrayToCheck, Element) {
+    ArrayToCheck.forEach(value => {
+        if (Element == value) {
+            return true;
+        }
+    });
+
+    return false;
+}
+
+function RemoveAllChildrenFromElement(ElementToRemoveFrom) {
+    while (ElementToRemoveFrom.firstChild) {
+        ElementToRemoveFrom.removeChild(ElementToRemoveFrom.lastChild);
+    }
+}
+
+/* SAVING PROFILES TO STORAGE */
+function UpdateLocalConfigStorage() {
+    window.localStorage.setItem("ConfigNames", JSON.stringify(ConfigNames));
+}
+
+function SaveConfigToStorage(Name, ConfigJSONString) {
+    window.localStorage.setItem(Name, ConfigJSONString);
+}
+
+function SaveCurrentActiveConfig(ConfigName) {
+    window.localStorage.setItem("CurrentConfig", ConfigName);
+}
+
+/* GETTING LOCAL STORAGE DATA */
+function GetCurrentActiveConfig() {
+    return window.localStorage.getItem("CurrentConfig");
+}
+
+function GetConfigByName(ConfigName) {
+    return window.localStorage.getItem(ConfigName);
+}
+
+function GetAllConfigNames() {
+    return window.localStorage.getItem("ConfigNames");
+}
+
+/* DELETING ITEMS */
+function DeleteConfig(ConfigName) {
+    window.localStorage.removeItem(ConfigName);
+}
+
+/* PROFILE FILE LOADING */
 function readFile(file, onLoadCallback) {
     var reader = new FileReader();
     reader.onload = onLoadCallback;
     reader.readAsText(file);
 }
 
-function loadConfig(setAsActive = true, updateConfigsInStorage = true) {
+function loadConfig() {
     let QuickNavigationConfigFile = document.getElementById("quick_nav_config_upload").files[0];
     if (QuickNavigationConfigFile != null) {
-        readFile(QuickNavigationConfigFile, function(e) {
-            var QuickNavigationConfigContent = e.target.result;
-            var QuickNavigationConfigJSON = JSON.parse(QuickNavigationConfigContent);
-            var config = convertJSONtoConfig(QuickNavigationConfigJSON);
-
-            // if (Configs[QuickNavigationConfigJSON.Name] != null) { console.warn("A config with the name: " + QuickNavigationConfigJSON.Name + " already exists!"); return; }
-            Configs[QuickNavigationConfigJSON.Name] = config;
-
-            var AddNameToConfigNames = true;
-            console.log(ConfigNames);
-            ConfigNames.forEach(value => {
-                if (QuickNavigationConfigJSON.Name == value) {
-                    AddNameToConfigNames = false;
-                }
-            });
-
-            if (AddNameToConfigNames) {
-                ConfigNames.push(QuickNavigationConfigJSON.Name);
-            }
-
-            window.localStorage.setItem(QuickNavigationConfigJSON.Name, JSON.stringify(config));
-
-            addConfigToSelector(QuickNavigationConfigJSON.Name, setAsActive, updateConfigsInStorage);
-        });
+        readFile(QuickNavigationConfigFile, loadConfigReadFileCallback);
     }
-
-    toggleLoadConfigMenu();
+    CloseAllMenus();
 }
 
 function convertJSONtoConfig(configJSON) {
@@ -61,14 +98,49 @@ function convertJSONtoConfig(configJSON) {
     return config;
 }
 
-function activateConfig(configName, setAsActiveConfig = true) {
-    console.log("ACTIVATING CONFIG: " + configName);
-    document.getElementById("quick_nav_title").innerHTML = Configs[configName].Name;
+function loadConfigReadFileCallback(LoadedFile) {
+    var config = convertJSONtoConfig(JSON.parse(LoadedFile.target.result));
+    Configs[config.Name] = config;
 
-    var container = document.getElementById("quick_nav_section_container");
-    while (container.firstChild) {
-        container.removeChild(container.lastChild);
+    if (!ArrayContains(ConfigNames, config.Name)) {
+        ConfigNames.push(config.Name);
     }
+
+    SaveConfigToStorage(config.Name, JSON.stringify(config));
+
+    addConfigToSelector(config.Name);
+    UpdateLocalConfigStorage();
+    activateConfig(config.Name);
+}
+
+function addConfigToSelector(configToAdd) {
+    var configSelector = GetElmByID("config_select");
+
+    if (!ArrayContains(Array.from(configSelector.options), configToAdd)) {
+        var option = document.createElement("option");
+        option.classList.add("quick_nav_option_element");
+        option.classList.add("sub_detail_color");
+        option.classList.add("quick_nav_small_title");
+        option.classList.add("small_header_text_color");
+        option.classList.add("quick_nav_center_text");
+        option.text = configToAdd;
+        option.id = "ID:" + configToAdd;
+        configSelector.add(option);
+    }
+}
+
+function setQuickNavTitle(Value) {
+    GetElmByID("quick_nav_title").innerHTML = Value;
+}
+
+function activateConfig(configName) {
+    setQuickNavTitle(Configs[configName].Name);
+
+    var configSelector = GetElmByID("config_select");
+    configSelector.value = configName;
+
+    var container = GetElmByID("quick_nav_section_container");
+    RemoveAllChildrenFromElement(container);
 
     Configs[configName].Sections.forEach(section => {
         var newSection = CreateSection(section.Name);
@@ -80,43 +152,193 @@ function activateConfig(configName, setAsActiveConfig = true) {
         AddQuickNavButton.addEventListener("click", SetValuesForSectionToAddLinkTo.bind(this, section.Name));
     });
 
-    if (setAsActiveConfig) {
-        window.localStorage.setItem("CurrentConfig", configName);
-    }
+    SaveConfigToStorage(configName);
+    SaveCurrentActiveConfig(configName);
 }
 
-function addConfigToSelector(configToAdd, setAsActive = false, updateConfigsInStorage = false, setAsActiveConfig = true) {
-    var configSelector = document.getElementById("config_select");
-    var addOptionToSelector = true;
+function SetValuesForSectionToAddLinkTo(SectionName) {
+    var SectionToAddLinkTo = GetElmByID("quick_nav_new_link_section_text");
+    SectionToAddLinkTo.innerHTML = "Section: " + SectionName;
 
-    Array.from(configSelector.options).forEach(function(option_element) {
-        if (option_element.text == configToAdd) {
-            console.warn("A option with the name: " + configToAdd + " already exists!  -  Updating Active Config but Ignoring add to selector!");
-            addOptionToSelector = false;
-            return;
+    var CreateNewLinkButton = GetElmByID("quick_nav_new_link_button");
+
+    CreateNewLinkButton.onclick = function() {
+        AddQuickNavButtonToSection(SectionName);
+    }
+
+    OpenMenu("quick_nav_add_link_menu");
+}
+
+function SaveJsonToFileAndSetAsDownload() {
+    var CurrentConfigName = GetCurrentActiveConfig();
+    var ConfigJsonData = GetConfigByName(CurrentConfigName);
+    var data = new Blob([ConfigJsonData], { type: 'application/json' });
+
+    if (FileToDownload !== null) {
+        window.URL.revokeObjectURL(FileToDownload);
+    }
+
+    FileToDownload = window.URL.createObjectURL(data);
+
+    var ExportButton = GetElmByID("masked_download_button");
+    ExportButton.href = FileToDownload;
+    ExportButton.download = CurrentConfigName;
+    ExportButton.click();
+}
+
+/* PROFILE EDITING */
+function NewProfile() {
+    var ValueObject = GetElmByID("quick_nav_new_profile_text");
+
+    var NewConfig = new Config();
+    NewConfig.Name = ValueObject.value;
+
+    if (ArrayContains(ConfigNames, NewConfig.Name)) {
+        return;
+    }
+
+    Configs[NewConfig.Name] = NewConfig;
+    ConfigNames.push(NewConfig.Name);
+
+    addConfigToSelector(NewConfig.Name);
+
+    activateConfig(NewConfig.Name);
+
+    SaveConfigToStorage(NewConfig.Name, JSON.stringify(NewConfig));
+    UpdateLocalConfigStorage();
+
+    ValueObject.value = "";
+
+    CloseAllMenus();
+}
+
+function addSection() {
+    var CurrentActiveConfig = GetCurrentActiveConfig();
+
+    var ValueObject = GetElmByID("quick_nav_add_section_text");
+
+    var SectionToAdd = new Section();
+    SectionToAdd.Name = ValueObject.value;
+
+    Configs[CurrentActiveConfig].Sections.push(SectionToAdd);
+
+    SaveConfigToStorage(CurrentActiveConfig, JSON.stringify(Configs[CurrentActiveConfig]));
+
+    activateConfig(CurrentActiveConfig);
+    ValueObject.value = "";
+}
+
+function AddQuickNavButtonToSection(SectionName) {
+    var CurrentActiveConfig = GetCurrentActiveConfig();
+
+    var NewNavLink = new QuickNavLink();
+
+    var NameElement = GetElmByID("quick_nav_new_link_name_text");
+    NewNavLink.Name = NameElement.value;
+    NameElement.value = "";
+
+    var LinkElement = GetElmByID("quick_nav_new_link_link_text");
+    var LinkElementValue = LinkElement.value;
+    if (!LinkElementValue.includes("https://")) {
+        LinkElementValue = "https://" + LinkElementValue;
+    }
+    NewNavLink.Link = LinkElementValue;
+    LinkElement.value = "";
+
+    var NewTarget = GetElmByID("quick_nav_new_link_target_text");
+    if (!(NewTarget.value == "_self" || NewTarget.value == "_blank")) {
+        NewTarget.value = "_blank";
+    }
+    NewNavLink.Target = NewTarget.value;
+    NewTarget.value = "";
+
+    var SecctionFound = Configs[CurrentActiveConfig].Sections.find(element => element.Name == SectionName);
+    SecctionFound.QuickNavLinks.push(NewNavLink);
+
+    SaveConfigToStorage(CurrentActiveConfig, JSON.stringify(Configs[CurrentActiveConfig]));
+
+    var Section = GetElmByID(SectionName);
+    AddNavLinkToSection(Section, NewNavLink);
+
+    CloseAllMenus();
+}
+
+function DeleteProfile() {
+    var CurrentActiveConfig = GetCurrentActiveConfig();
+
+    if (CurrentActiveConfig == "Default") {
+        return;
+    }
+
+    var newConfigNames = []
+    ConfigNames.forEach(element => {
+        if (element != CurrentActiveConfig) {
+            newConfigNames.push(element);
         }
     });
 
-    if (addOptionToSelector) {
-        var option = document.createElement("option");
-        option.classList.add("quick_nav_option_element");
-        option.classList.add("sub_detail_color");
-        option.classList.add("quick_nav_small_title");
-        option.classList.add("small_header_text_color");
-        option.classList.add("quick_nav_center_text");
-        option.text = configToAdd;
-        option.id = "ID:" + configToAdd;
-        configSelector.add(option);
+    ConfigNames = newConfigNames;
+    UpdateLocalConfigStorage();
+
+    var elementToDelete = GetElmByID("ID:" + CurrentActiveConfig);
+    elementToDelete.remove();
+
+    DeleteConfig(CurrentActiveConfig);
+
+    activateConfig("Default");
+    CloseAllMenus();
+}
+
+/* MENU STATE MANAGEMENT */
+var MenuNames = []
+
+function OpenMenu(MenuId) {
+    if (!ArrayContains(MenuNames, MenuId)) {
+        MenuNames.push(MenuId);
     }
 
-    if (setAsActive) {
-        configSelector.value = configToAdd;
-        activateConfig(configToAdd, setAsActiveConfig);
+    let MenuFound = GetElmByID(MenuId);
+    MenuFound.style.display = "flex";
+}
+
+function CloseMenu(MenuId) {
+    if (!ArrayContains(MenuNames, MenuId)) {
+        MenuNames.push(MenuId);
     }
 
-    if (updateConfigsInStorage) {
-        UpdateLocalConfigStorage();
-    }
+    let MenuFound = GetElmByID(MenuId);
+    MenuFound.style.display = "none";
+}
+
+function CloseAllMenus() {
+    MenuNames.forEach(MenuName => {
+        CloseMenu(MenuName);
+    })
+}
+
+/* INITIALISATION */
+
+function InitialiseQuickNavigation() {
+    var CurrentConfigs = JSON.parse(GetAllConfigNames());
+    var ConfigNameDuplicateCheck = {}
+
+    var CurrentActiveConfig = GetCurrentActiveConfig();
+    if (CurrentConfigs == null) { return; }
+
+    CurrentConfigs.forEach(configName => {
+        if (ConfigNameDuplicateCheck[configName] == null || ConfigNameDuplicateCheck[configName] == false) {
+            ConfigNameDuplicateCheck[configName] = true;
+            if (configName != "Default") {
+                var LoadedConfig = JSON.parse(GetConfigByName(configName));
+                Configs[configName] = LoadedConfig;
+                ConfigNames.push(configName);
+                addConfigToSelector(configName);
+            }
+            if (configName == CurrentActiveConfig) {
+                activateConfig(configName);
+            }
+        }
+    });
 }
 
 function createDefaultConfig() {
@@ -174,277 +396,50 @@ function createDefaultConfig() {
 
     Configs[config.Name] = config;
     ConfigNames.push(config.Name);
-    addConfigToSelector(config.Name, true, false, false);
+    addConfigToSelector(config.Name);
+    activateConfig(config.Name);
 }
 
-function UpdateLocalConfigStorage() {
-    window.localStorage.setItem("ConfigNames", JSON.stringify(ConfigNames));
-}
+/* RESET DATA */
+var ResetDataAtStart = true;
 
-function DeleteProfile() {
-    var CurrentActiveConfig = window.localStorage.getItem("CurrentConfig");
-
-    if (CurrentActiveConfig == "Default") {
-        return;
-    }
-
-    var newConfigNames = []
-    ConfigNames.forEach(element => {
-        if (element != CurrentActiveConfig) {
-            newConfigNames.push(element);
-        }
+function CompleteReset() {
+    var CurrentConfigs = JSON.parse(GetAllConfigNames());
+    CurrentConfigs.forEach(ConfigName => {
+        DeleteConfig(ConfigName);
     });
 
-    ConfigNames = newConfigNames;
+    SaveCurrentActiveConfig("Default");
+
+    var NewConfigNames = []
+    ConfigNames = NewConfigNames;
     UpdateLocalConfigStorage();
-
-    var elementToDelete = document.getElementById("ID:" + CurrentActiveConfig);
-    elementToDelete.remove();
-
-    window.localStorage.removeItem(CurrentActiveConfig);
-
-    activateConfig("Default");
-    closeAllMenus();
 }
 
-function InitialiseQuickNavigation() {
-    var CurrentConfigs = JSON.parse(window.localStorage.getItem("ConfigNames"));
-    var ConfigNameDuplicateCheck = {}
-
-    var CurrentActiveConfig = window.localStorage.getItem("CurrentConfig");
-    if (CurrentConfigs == null) { return; }
-
-    CurrentConfigs.forEach(configName => {
-        if (ConfigNameDuplicateCheck[configName] == null || ConfigNameDuplicateCheck[configName] == false) {
-            ConfigNameDuplicateCheck[configName] = true;
-            if (configName != "Default") {
-                var LoadedConfig = JSON.parse(window.localStorage.getItem(configName));
-                Configs[configName] = LoadedConfig;
-                ConfigNames.push(configName);
-                addConfigToSelector(configName, false, false);
-                if (configName == CurrentActiveConfig) {
-                    activateConfig(configName);
-                }
-            }
-        }
-    });
-}
-
-function SaveJsonToFileAndSetAsDownload() {
-    var CurrentConfigName = window.localStorage.getItem("CurrentConfig");
-    var ConfigJsonData = window.localStorage.getItem(CurrentConfigName);
-    var data = new Blob([ConfigJsonData], { type: 'application/json' });
-
-    if (FileToDownload !== null) {
-        window.URL.revokeObjectURL(FileToDownload);
-    }
-
-    FileToDownload = window.URL.createObjectURL(data);
-
-    var ExportButton = document.getElementById("masked_download_button");
-    ExportButton.href = FileToDownload;
-    ExportButton.download = CurrentConfigName;
-    ExportButton.click();
-}
-
-var LoadConfigMenuOpen = false
-
-function toggleLoadConfigMenu(useToggle = false) {
-    if (useToggle) {
-        closeAllMenus(0);
-    }
-
-    LoadConfigMenuOpen = !LoadConfigMenuOpen;
-
-    let quick_nav_manage_profiles_menu = document.getElementById("quick_nav_manage_profiles_menu");
-
-    if (LoadConfigMenuOpen) {
-        quick_nav_manage_profiles_menu.style.display = "flex";
-    } else {
-        quick_nav_manage_profiles_menu.style.display = "none";
-    }
-}
-
-var addSectionMenuOpen = false
-
-function toggleAddSectionMenu(useToggle = false) {
-    if (useToggle) {
-        closeAllMenus(1);
-    }
-
-    addSectionMenuOpen = !addSectionMenuOpen;
-
-    let quick_nav_menu = document.getElementById("quick_nav_add_section_menu");
-
-    if (addSectionMenuOpen) {
-        quick_nav_menu.style.display = "flex";
-    } else {
-        quick_nav_menu.style.display = "none";
-    }
-}
-
-var NewLinkMenuOpen = false
-
-function toggleNewLinkMenu(useToggle = false) {
-    if (useToggle) {
-        closeAllMenus(2);
-    }
-
-    NewLinkMenuOpen = !NewLinkMenuOpen;
-
-    let quick_nav_menu = document.getElementById("quick_nav_add_link_menu");
-
-    if (NewLinkMenuOpen) {
-        quick_nav_menu.style.display = "flex";
-    } else {
-        quick_nav_menu.style.display = "none";
-    }
-}
-
-function closeAllMenus(callerId = -1) {
-    if (LoadConfigMenuOpen && callerId != 0) {
-        toggleLoadConfigMenu(true);
-    }
-    if (addSectionMenuOpen && callerId != 1) {
-        toggleAddSectionMenu(true);
-    }
-    if (NewLinkMenuOpen && callerId != 2) {
-        toggleNewLinkMenu(true);
-    }
-}
-
-function SetValuesForSectionToAddLinkTo(SectionName) {
-    var SectionToAddLinkTo = document.getElementById("quick_nav_new_link_section_text");
-    SectionToAddLinkTo.innerHTML = "Section: " + SectionName;
-
-    var CreateNewLinkButton = document.getElementById("quick_nav_new_link_button");
-    //CreateNewLinkButton.removeEventListener("click", AddQuickNavButtonToSection.bind(this, PrevSectionName), true);
-    //CreateNewLinkButton.addEventListener("click", AddQuickNavButtonToSection.bind(this, SectionName));
-    CreateNewLinkButton.onclick = function() {
-        AddQuickNavButtonToSection(SectionName);
-    }
-
-    if (!NewLinkMenuOpen) {
-        toggleNewLinkMenu();
-    }
-}
-
-function AddQuickNavButtonToSection(SectionName) {
-    var CurrentActiveConfig = window.localStorage.getItem("CurrentConfig");
-
-    var NewNavLink = new QuickNavLink();
-
-    var NameElement = document.getElementById("quick_nav_new_link_name_text");
-    NewNavLink.Name = NameElement.value;
-    NameElement.value = "";
-
-    var LinkElement = document.getElementById("quick_nav_new_link_link_text");
-    var LinkElementValue = LinkElement.value;
-    if (!LinkElementValue.includes("https://")) {
-        LinkElementValue = "https://" + LinkElementValue;
-    }
-    NewNavLink.Link = LinkElementValue;
-    LinkElement.value = "";
-
-    var NewTarget = document.getElementById("quick_nav_new_link_target_text");
-    if (!(NewTarget.value == "_self" || NewTarget.value == "_blank")) {
-        NewTarget.value = "_blank";
-    }
-    NewNavLink.Target = NewTarget.value;
-    NewTarget.value = "";
-
-    var SecctionFound = Configs[CurrentActiveConfig].Sections.find(element => element.Name == SectionName);
-    SecctionFound.QuickNavLinks.push(NewNavLink);
-
-    console.log(Configs[CurrentActiveConfig]);
-    window.localStorage.setItem(CurrentActiveConfig, JSON.stringify(Configs[CurrentActiveConfig]));
-
-    var Section = document.getElementById(SectionName);
-    AddNavLinkToSection(Section, NewNavLink);
-
-    closeAllMenus();
-}
-
-function addSection() {
-    var CurrentActiveConfig = window.localStorage.getItem("CurrentConfig");
-
-    var ValueObject = document.getElementById("quick_nav_add_section_text");
-
-    var SectionToAdd = new Section();
-    SectionToAdd.Name = ValueObject.value;
-
-    Configs[CurrentActiveConfig].Sections.push(SectionToAdd);
-
-    window.localStorage.setItem(CurrentActiveConfig, JSON.stringify(Configs[CurrentActiveConfig]));
-
-    activateConfig(CurrentActiveConfig);
-    ValueObject.value = "";
-}
-
-function NewProfile() {
-    var ValueObject = document.getElementById("quick_nav_new_profile_text");
-
-    var NewConfig = new Config();
-    NewConfig.Name = ValueObject.value;
-
-    var AddNameToConfigNames = true;
-    ConfigNames.forEach(value => {
-        if (NewConfig.Name == value) {
-            AddNameToConfigNames = false;
-        }
-    });
-
-    if (AddNameToConfigNames == false) {
-        return;
-    }
-
-    Configs[NewConfig.Name] = NewConfig;
-
-    if (AddNameToConfigNames) {
-        ConfigNames.push(NewConfig.Name);
-    }
-
-    window.localStorage.setItem(NewConfig.Name, JSON.stringify(NewConfig));
-
-    addConfigToSelector(NewConfig.Name, true, true);
-
-    ValueObject.value = "";
-
-    closeAllMenus();
-}
-
+/*
+    ----------------------------------------------------------------------------
+    ---------------------------- PROGRAM ENTRY POINT ---------------------------
+    ----------------------------------------------------------------------------
+*/
 window.onload = function() {
+    if (ResetDataAtStart) { CompleteReset(); }
+
     createDefaultConfig();
     InitialiseQuickNavigation();
 
-    let ConfigSubmitButton = document.getElementById("quick_nav_config_submit_button");
-    ConfigSubmitButton.addEventListener("click", loadConfig);
+    AddClickListnerToButton(GetElmByID("quick_nav_config_submit_button"), loadConfig);
+    AddClickListnerToButton(GetElmByID("quick_nav_manage_profiles_button"), OpenMenu.bind(this, "quick_nav_manage_profiles_menu"));
+    AddClickListnerToButton(GetElmByID("download_config_button"), SaveJsonToFileAndSetAsDownload);
+    AddClickListnerToButton(GetElmByID("quick_nav_add_section_button"), OpenMenu.bind(this, "quick_nav_add_section_menu"));
+    AddClickListnerToButton(GetElmByID("quick_nav_add_section_to_config_button"), addSection);
+    AddClickListnerToButton(GetElmByID("quick_nav_delete_profile_button"), DeleteProfile);
+    AddClickListnerToButton(GetElmByID("quick_nav_new_profile_button"), NewProfile);
 
-    let LoadConfigMenuButton = document.getElementById("quick_nav_manage_profiles_button");
-    LoadConfigMenuButton.addEventListener("click", toggleLoadConfigMenu);
-
-    let ConfigExportButton = document.getElementById("download_config_button");
-    ConfigExportButton.addEventListener("click", SaveJsonToFileAndSetAsDownload);
-
-    let AddSectionMenuButton = document.getElementById("quick_nav_add_section_button");
-    AddSectionMenuButton.addEventListener("click", toggleAddSectionMenu);
-
-    let AddSectionToConfigButton = document.getElementById("quick_nav_add_section_to_config_button");
-    AddSectionToConfigButton.addEventListener("click", addSection);
-
-    let DeleteProfileButton = document.getElementById("quick_nav_delete_profile_button");
-    DeleteProfileButton.addEventListener("click", DeleteProfile);
-
-    let NewProfileButton = document.getElementById("quick_nav_new_profile_button");
-    NewProfileButton.addEventListener("click", NewProfile);
-
-    let CloseButtons = document.getElementsByClassName("close_button");
-    Array.from(CloseButtons).forEach(function(button) {
-        button.addEventListener("click", closeAllMenus);
+    Array.from(GetElmsByCls("close_button")).forEach(function(Button) {
+        AddClickListnerToButton(Button, CloseAllMenus);
     });
 
-    let configSelector = document.getElementById("config_select");
-    configSelector.addEventListener('change', (event) => {
+    GetElmByID("config_select").addEventListener('change', (event) => {
         activateConfig(event.target.value);
     });
 }
