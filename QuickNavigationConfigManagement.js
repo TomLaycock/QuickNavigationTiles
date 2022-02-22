@@ -16,13 +16,27 @@ function AddClickListnerToButton(ButtonToAddTo, FunctionToCall) {
 }
 
 function ArrayContains(ArrayToCheck, Element) {
-    ArrayToCheck.forEach(value => {
+    var DoesArrayContainElement = false;
+
+    ArrayToCheck.forEach(function(value) {
         if (Element == value) {
-            return true;
+            DoesArrayContainElement = true;
         }
     });
 
-    return false;
+    return DoesArrayContainElement;
+}
+
+function ArrayContainsForSelector(ArrayToCheck, Element) {
+    var DoesArrayContainElement = false;
+
+    ArrayToCheck.forEach(function(Option) {
+        if (Element == Option.value) {
+            DoesArrayContainElement = true;
+        }
+    });
+
+    return DoesArrayContainElement;
 }
 
 function RemoveAllChildrenFromElement(ElementToRemoveFrom) {
@@ -102,15 +116,19 @@ function loadConfigReadFileCallback(LoadedFile) {
     var config = convertJSONtoConfig(JSON.parse(LoadedFile.target.result));
     Configs[config.Name] = config;
 
-    if (!ArrayContains(ConfigNames, config.Name)) {
+    var DoesConfigAlreadyExist = ArrayContains(ConfigNames, config.Name);
+
+    if (!DoesConfigAlreadyExist) {
         ConfigNames.push(config.Name);
-        console.log("Pushing Name");
     }
 
     SaveConfigToStorage(config.Name, JSON.stringify(config));
 
-    addConfigToSelector(config.Name);
-    UpdateLocalConfigStorage();
+    if (!DoesConfigAlreadyExist) {
+        addConfigToSelector(config.Name);
+        UpdateLocalConfigStorage();
+    }
+
     activateConfig(config.Name);
     SaveCurrentActiveConfig(config.Name);
 }
@@ -118,7 +136,7 @@ function loadConfigReadFileCallback(LoadedFile) {
 function addConfigToSelector(configToAdd) {
     var configSelector = GetElmByID("config_select");
 
-    if (!ArrayContains(Array.from(configSelector.options), configToAdd)) {
+    if (!ArrayContainsForSelector(Array.from(configSelector.options), configToAdd)) {
         var option = document.createElement("option");
         option.classList.add("quick_nav_option_element");
         option.classList.add("sub_detail_color");
