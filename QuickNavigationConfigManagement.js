@@ -104,6 +104,7 @@ function loadConfigReadFileCallback(LoadedFile) {
 
     if (!ArrayContains(ConfigNames, config.Name)) {
         ConfigNames.push(config.Name);
+        console.log("Pushing Name");
     }
 
     SaveConfigToStorage(config.Name, JSON.stringify(config));
@@ -111,6 +112,7 @@ function loadConfigReadFileCallback(LoadedFile) {
     addConfigToSelector(config.Name);
     UpdateLocalConfigStorage();
     activateConfig(config.Name);
+    SaveCurrentActiveConfig(config.Name);
 }
 
 function addConfigToSelector(configToAdd) {
@@ -152,8 +154,9 @@ function activateConfig(configName) {
         AddQuickNavButton.addEventListener("click", SetValuesForSectionToAddLinkTo.bind(this, section.Name));
     });
 
-    SaveConfigToStorage(configName);
-    SaveCurrentActiveConfig(configName);
+    if (configName != "Default") {
+        SaveConfigToStorage(configName, JSON.stringify(Configs[configName]));
+    }
 }
 
 function SetValuesForSectionToAddLinkTo(SectionName) {
@@ -203,6 +206,7 @@ function NewProfile() {
     addConfigToSelector(NewConfig.Name);
 
     activateConfig(NewConfig.Name);
+    SaveCurrentActiveConfig(NewConfig.Name);
 
     SaveConfigToStorage(NewConfig.Name, JSON.stringify(NewConfig));
     UpdateLocalConfigStorage();
@@ -286,6 +290,7 @@ function DeleteProfile() {
     DeleteConfig(CurrentActiveConfig);
 
     activateConfig("Default");
+    SaveCurrentActiveConfig("Default");
     CloseAllMenus();
 }
 
@@ -398,22 +403,19 @@ function createDefaultConfig() {
     ConfigNames.push(config.Name);
     addConfigToSelector(config.Name);
     activateConfig(config.Name);
+
+    var CurrentActiveConfigValue = GetCurrentActiveConfig();
+    if (CurrentActiveConfigValue == null || CurrentActiveConfigValue == "") {
+        SaveCurrentActiveConfig("Default");
+    }
 }
 
 /* RESET DATA */
-var ResetDataAtStart = true;
+var ResetDataAtStart = false;
 
 function CompleteReset() {
-    var CurrentConfigs = JSON.parse(GetAllConfigNames());
-    CurrentConfigs.forEach(ConfigName => {
-        DeleteConfig(ConfigName);
-    });
-
+    window.localStorage.clear();
     SaveCurrentActiveConfig("Default");
-
-    var NewConfigNames = []
-    ConfigNames = NewConfigNames;
-    UpdateLocalConfigStorage();
 }
 
 /*
@@ -441,5 +443,6 @@ window.onload = function() {
 
     GetElmByID("config_select").addEventListener('change', (event) => {
         activateConfig(event.target.value);
+        SaveCurrentActiveConfig(event.target.value);
     });
 }
