@@ -1,6 +1,17 @@
 var Configs = {}
 var ConfigNames = []
 var FileToDownload = null;
+var EDITING_ACTIVE = false;
+
+/* EXTENSIONS */
+Array.prototype.swap = function(First, Second) {
+    if (First >= 0 && First < this.length && Second >= 0 && Second < this.length) {
+        var ElementOne = this[First];
+        this[First] = this[Second];
+        this[Second] = ElementOne;
+    }
+    return this;
+}
 
 /* BASE FUNCTIONS */
 function GetElmByID(ElementId) {
@@ -162,19 +173,49 @@ function activateConfig(configName) {
     var container = GetElmByID("quick_nav_section_container");
     RemoveAllChildrenFromElement(container);
 
+    var SectionCounter = 0;
     Configs[configName].Sections.forEach(section => {
         var newSection = CreateSection(section.Name);
+
+        var QuickNavLinkCounter = 0;
         section.QuickNavLinks.forEach(quickNavLink => {
-            AddNavLinkToSection(newSection, quickNavLink);
+            var newContainer = CreateNavLinkContainer();
+            var containerToolBar = AddNavLinkToolsToContainer(newContainer);
+
+            if (EDITING_ACTIVE) {
+                containerToolBar["ToolBar"].style.display = "flex";
+            }
+
+            containerToolBar["Left"].addEventListener("click", MoveItem.bind(this, SectionCounter, QuickNavLinkCounter, -1));
+            containerToolBar["Right"].addEventListener("click", MoveItem.bind(this, SectionCounter, QuickNavLinkCounter, 1));
+            containerToolBar["Delete"].addEventListener("click", DeleteQuickNavItem.bind(this, SectionCounter, QuickNavLinkCounter));
+
+            AddNavLinkToContainer(newContainer, quickNavLink);
+            AddNavLinkContainerToSection(newSection, newContainer);
+            QuickNavLinkCounter += 1;
         });
         container.appendChild(newSection);
         var AddQuickNavButton = AddInsertQuickNavLinkButton(newSection);
         AddQuickNavButton.addEventListener("click", SetValuesForSectionToAddLinkTo.bind(this, section.Name));
+
+        SectionCounter += 1;
     });
 
     if (configName != "Default") {
         SaveConfigToStorage(configName, JSON.stringify(Configs[configName]));
     }
+}
+
+function DeleteQuickNavItem(SectionNo, ItemNo) {
+    var CurrentActiveConfigName = GetCurrentActiveConfig();
+    Configs[CurrentActiveConfigName].Sections[SectionNo].QuickNavLinks.splice(ItemNo, 1);
+    activateConfig(CurrentActiveConfigName);
+}
+
+function MoveItem(SectionNo, ItemNo, Direction) {
+    var CurrentActiveConfigName = GetCurrentActiveConfig();
+    Configs[CurrentActiveConfigName].Sections[SectionNo].QuickNavLinks.swap(ItemNo, ItemNo + Direction);
+    activateConfig(CurrentActiveConfigName);
 }
 
 function SetValuesForSectionToAddLinkTo(SectionName) {
@@ -277,12 +318,18 @@ function AddQuickNavButtonToSection(SectionName) {
     var SecctionFound = Configs[CurrentActiveConfig].Sections.find(element => element.Name == SectionName);
     SecctionFound.QuickNavLinks.push(NewNavLink);
 
-    SaveConfigToStorage(CurrentActiveConfig, JSON.stringify(Configs[CurrentActiveConfig]));
+    activateConfig(CurrentActiveConfig);
+    CloseAllMenus();
+
+    /*SaveConfigToStorage(CurrentActiveConfig, JSON.stringify(Configs[CurrentActiveConfig]));
 
     var Section = GetElmByID(SectionName);
-    AddNavLinkToSection(Section, NewNavLink);
 
-    CloseAllMenus();
+    var newContainer = CreateNavLinkContainer();
+    AddNavLinkToContainer(newContainer, NewNavLink);
+    AddNavLinkContainerToSection(Section, newContainer);
+
+    CloseAllMenus();*/
 }
 
 function DeleteProfile() {
@@ -310,6 +357,23 @@ function DeleteProfile() {
     activateConfig("Default");
     SaveCurrentActiveConfig("Default");
     CloseAllMenus();
+}
+
+function ToggleEditing() {
+    EDITING_ACTIVE = !EDITING_ACTIVE;
+
+    var toolBars = document.getElementsByClassName("quick_nav_tool_bar_enabled");
+
+    if (EDITING_ACTIVE) {
+        for (var i = 0; i < toolBars.length; i++) {
+            toolBars[i].style.display = "flex";
+        }
+        return;
+    }
+
+    for (var i = 0; i < toolBars.length; i++) {
+        toolBars[i].style.display = "none";
+    }
 }
 
 /* MENU STATE MANAGEMENT */
@@ -448,6 +512,7 @@ window.onload = function() {
     InitialiseQuickNavigation();
 
     AddClickListnerToButton(GetElmByID("quick_nav_config_submit_button"), loadConfig);
+    AddClickListnerToButton(GetElmByID("quick_nav_toggle_editing"), ToggleEditing);
     AddClickListnerToButton(GetElmByID("quick_nav_manage_profiles_button"), OpenMenu.bind(this, "quick_nav_manage_profiles_menu"));
     AddClickListnerToButton(GetElmByID("download_config_button"), SaveJsonToFileAndSetAsDownload);
     AddClickListnerToButton(GetElmByID("quick_nav_add_section_button"), OpenMenu.bind(this, "quick_nav_add_section_menu"));

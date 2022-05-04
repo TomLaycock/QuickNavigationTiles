@@ -20,12 +20,49 @@ function CreateSection(SectionName) {
     return newSection;
 }
 
-function AddNavLinkToSection(Section, NavLink) {
-    var section_elements = Section.children[1]
-
+function CreateNavLinkContainer() {
     var newQuickNavLinkContianer = document.createElement("div");
     newQuickNavLinkContianer.classList.add("quick_nav_box_contianer");
 
+    return newQuickNavLinkContianer;
+}
+
+function AddNavLinkToolsToContainer(newQuickNavLinkContianer) {
+    var newToolBar = document.createElement("div");
+    newToolBar.classList.add("quick_nav_tool_bar");
+    newToolBar.classList.add("quick_nav_tool_bar_enabled");
+
+    var moveLeftButton = document.createElement("a");
+    moveLeftButton.classList.add("quick_nav_tool_bar_element");
+    moveLeftButton.classList.add("utility_button_color");
+    moveLeftButton.innerHTML = "<";
+
+    var moveRightButton = document.createElement("a");
+    moveRightButton.classList.add("quick_nav_tool_bar_element");
+    moveRightButton.classList.add("utility_button_color");
+    moveRightButton.innerHTML = ">";
+
+    var deleteButton = document.createElement("a");
+    deleteButton.classList.add("quick_nav_tool_bar_element");
+    deleteButton.classList.add("utility_button_color");
+    deleteButton.classList.add("quick_nav_tool_bar_element_delete");
+    deleteButton.innerHTML = "x";
+
+    newToolBar.appendChild(moveLeftButton);
+    newToolBar.appendChild(moveRightButton);
+    newToolBar.appendChild(deleteButton);
+
+    newQuickNavLinkContianer.appendChild(newToolBar);
+
+    return {
+        ["ToolBar"]: newToolBar,
+        ["Left"]: moveLeftButton,
+        ["Right"]: moveRightButton,
+        ["Delete"]: deleteButton
+    }
+}
+
+function AddNavLinkToContainer(newQuickNavLinkContianer, NavLink) {
     var newQuickNavLink = document.createElement("a");
     newQuickNavLink.classList.add("quick_nav_box");
     newQuickNavLink.classList.add("detail_color");
@@ -46,7 +83,10 @@ function AddNavLinkToSection(Section, NavLink) {
 
     newQuickNavLinkContianer.appendChild(newQuickNavLink);
     newQuickNavLinkContianer.appendChild(newQuickNavLinkDesc);
+}
 
+function AddNavLinkContainerToSection(Section, newQuickNavLinkContianer) {
+    var section_elements = Section.children[1]
     section_elements.appendChild(newQuickNavLinkContianer);
 }
 
@@ -63,23 +103,3 @@ function AddInsertQuickNavLinkButton(Section) {
 
     return newQuickNavLink;
 }
-
-/*
-
-<div class="section_container">
-    <div class="section_header">
-        <h1 class="section_header_h1 small_header_text_color">Section Title</h1>
-    </div>
-    <div class="section_elements">
-        <a class="quick_nav_box"></a>
-        <a class="quick_nav_box"></a>
-        <a class="quick_nav_box"></a>
-        <a class="quick_nav_box"></a>
-        <a class="quick_nav_box"></a>
-        <a class="quick_nav_box"></a>
-        <a class="quick_nav_box"></a>
-        <a class="quick_nav_box_add_element header_text_color quick_nav_center_text"> + </a>
-    </div>
-</div>
-
-*/
