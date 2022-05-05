@@ -33,3 +33,22 @@
     background-color: #ababab;
     border-color: #4d4d4d;
 }
+
+.quick_nav_content_area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    z-index: 1;
+    margin-top: 60px;
+    right: 0;
+}
+
+.section_container {
+    width: 98%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}

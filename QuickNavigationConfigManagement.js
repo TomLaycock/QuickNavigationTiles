@@ -583,6 +583,7 @@ window.onload = function() {
     InitialiseQuickNavigation();
 
     AddClickListnerToButton(GetElmByID("quick_nav_config_submit_button"), loadConfig);
+    AddClickListnerToButton(GetElmByID("quick_nav_toggle_columns"), ToggleColumnMode);
     AddClickListnerToButton(GetElmByID("quick_nav_toggle_editing"), ToggleEditing);
     AddClickListnerToButton(GetElmByID("quick_nav_manage_profiles_button"), OpenMenu.bind(this, "quick_nav_manage_profiles_menu"));
     AddClickListnerToButton(GetElmByID("download_config_button"), SaveJsonToFileAndSetAsDownload);
