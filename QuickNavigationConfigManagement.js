@@ -582,9 +582,6 @@ window.onload = function() {
     createDefaultConfig();
     InitialiseQuickNavigation();
 
-    let NewProfileButton = document.getElementById("quick_nav_new_profile_button");
-    NewProfileButton.addEventListener("click", NewProfile);
-
     AddClickListnerToButton(GetElmByID("quick_nav_config_submit_button"), loadConfig);
     AddClickListnerToButton(GetElmByID("quick_nav_toggle_editing"), ToggleEditing);
     AddClickListnerToButton(GetElmByID("quick_nav_manage_profiles_button"), OpenMenu.bind(this, "quick_nav_manage_profiles_menu"));
@@ -599,9 +596,9 @@ window.onload = function() {
         AddClickListnerToButton(Button, CloseAllMenus);
     });
 
-    let configSelector = document.getElementById("config_select");
-    configSelector.addEventListener('change', (event) => {
+    GetElmByID("config_select").addEventListener('change', (event) => {
         activateConfig(event.target.value);
+        SaveCurrentActiveConfig(event.target.value);
     });
 
     GetElmByID("background_color_selector").addEventListener("input", UpdateColor.bind(this, "BGC"), false);
@@ -624,9 +621,4 @@ window.onload = function() {
 
     GetElmByID("button_border_color_selector").addEventListener("input", UpdateColor.bind(this, "BBOGC"), false);
     GetElmByID("button_border_color_selector").addEventListener("change", UpdateColor.bind(this, "BBOGC"), false);
-
-    GetElmByID("config_select").addEventListener('change', (event) => {
-        activateConfig(event.target.value);
-        SaveCurrentActiveConfig(event.target.value);
-    });
 }
