@@ -1,0 +1,35 @@
+.QuickNavCustomStylesDetector {
+    content: "This is the Quick Nav Style Sheet Detector - No Styling Needed!";
+}
+
+.header_text_color {
+    color: #FFFFFF;
+}
+
+.small_header_text_color {
+    color: #FFFFFF;
+}
+
+.content_text_color {
+    color: #CCCCCC;
+}
+
+.background_color {
+    background-color: #696969;
+}
+
+.detail_color {
+    background-color: #bababa;
+    border-color: #8a8a8a;
+}
+
+.sub_detail_color {
+    background-color: #a8a8a8;
+    border-color: #8a8a8a;
+}
+
+.button_gradient {
+    background-image: linear-gradient(#ababab, #787878);
+    background-color: #ababab;
+    border-color: #4d4d4d;
+}

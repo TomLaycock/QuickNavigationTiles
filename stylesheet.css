@@ -1,3 +1,7 @@
+.QuickNavStyleSheetDetector {
+    content: "This is the Quick Nav Style Sheet Detector - No Styling Needed!";
+}
+
 body {
     height: 100vh;
     padding: 0%;
@@ -5,22 +9,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: baseline;
-}
-
-.header_text_color {
-    color: #FFFFFF;
-}
-
-.small_header_text_color {
-    color: #FFFFFF;
-}
-
-.content_text_color {
-    color: #CCCCCC;
-}
-
-.background_color {
-    background-color: #535353;
 }
 
 .bottom_border {
@@ -33,19 +21,9 @@ body {
     margin-bottom: 10px;
 }
 
-.detail_color {
-    background-color: #45ccb5;
-    border-color: #39af9b;
-}
-
-.sub_detail_color {
-    background-color: #7cc4c4;
-    border-color: #509696;
-}
-
-.button_gradient {
-    background-image: linear-gradient(#7cc4c4, #509696);
-    border-color: #408181;
+.utility_button_color {
+    background-color: #cbcbcb;
+    border-color: #747474;
 }
 
 .quick_nav_center_text {
@@ -294,7 +272,10 @@ body {
 .popup_menu_row {
     height: auto;
     display: flex;
+    align-items: center;
+    text-align: center;
     justify-content: center;
+    flex-direction: row;
     margin-bottom: 10px;
 }
 
@@ -312,6 +293,10 @@ body {
 }
 
 #quick_nav_add_link_menu {
+    display: none;
+}
+
+#quick_nav_settings_menu {
     display: none;
 }
 
