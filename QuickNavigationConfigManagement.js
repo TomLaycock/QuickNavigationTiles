@@ -120,7 +120,7 @@ function convertJSONtoConfig(configJSON) {
         config.Sections.push(newSection);
     });
 
-    console.log(configJSON.Settings);
+    config.Settings = configJSON.Settings;
 
     return config;
 }
@@ -359,16 +359,6 @@ function AddQuickNavButtonToSection(SectionName) {
 
     activateConfig(CurrentActiveConfig);
     CloseAllMenus();
-
-    /*SaveConfigToStorage(CurrentActiveConfig, JSON.stringify(Configs[CurrentActiveConfig]));
-
-    var Section = GetElmByID(SectionName);
-
-    var newContainer = CreateNavLinkContainer();
-    AddNavLinkToContainer(newContainer, NewNavLink);
-    AddNavLinkContainerToSection(Section, newContainer);
-
-    CloseAllMenus();*/
 }
 
 function DeleteProfile() {
