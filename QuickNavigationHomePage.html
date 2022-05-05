@@ -4,6 +4,8 @@
 <head>
     <title id="quick_nav_page_title">Quick Navigation</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="custom_styles.css">
+    <script src="StyleSheetRestyler.js"></script>
     <script src="QuickNavigationConfig.js"></script>
     <script src="QuickNavigationElementCreation.js"></script>
     <script src="QuickNavigationConfigManagement.js"></script>
@@ -21,7 +23,7 @@
                 <a id="quick_nav_toggle_editing" class="quick_nav_edit_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text"></a>
                 <a id="quick_nav_manage_profiles_button" class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Manage Profiles</a>
                 <a id="quick_nav_add_section_button" class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Manage Sections</a>
-                <a class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Settings</a>
+                <a id="quick_nav_settings_button" class="quick_nav_button button_gradient small_header_text_color quick_nav_small_title quick_nav_center_text">Settings</a>
             </div>
         </div>
     </div>
@@ -138,6 +140,44 @@
         </div>
         <div class="popup_menu_row popup_menu_row_width_2">
             <button id="quick_nav_new_link_button" class="quick_nav_button button_gradient small_header_text_color">Create Link</button>
+        </div>
+    </div>
+    <!-- SETTINGS MENU -->
+    <div id="quick_nav_settings_menu" class="popup_menu">
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <div class="row">
+                <h1 class="header_text_color quick_nav_center_text">Settings</h1>
+                <div class="close_button">X</div>
+            </div>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input type="color" id="background_color_selector" value="#696969">
+            <h1 class="header_text_color quick_nav_small_title_text">Background Color</h1>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input type="color" id="main_background_color_selector" value="#bababa">
+            <h1 class="header_text_color quick_nav_small_title_text">Main Background Color</h1>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input type="color" id="sub_background_color_selector" value="#a8a8a8">
+            <h1 class="header_text_color quick_nav_small_title_text">Sub Background Color</h1>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input type="color" id="main_border_color_selector" value="#8a8a8a">
+            <h1 class="header_text_color quick_nav_small_title_text">Main Border Color</h1>
+        </div>
+
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input type="color" id="button_background_color_selector" value="#ababab">
+            <h1 class="header_text_color quick_nav_small_title_text">Button Background Color</h1>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input type="color" id="button_background_fade_color_selector" value="#787878">
+            <h1 class="header_text_color quick_nav_small_title_text">Button Background Fade Color</h1>
+        </div>
+        <div class="popup_menu_row popup_menu_row_width_2">
+            <input type="color" id="button_border_color_selector" value="#4d4d4d">
+            <h1 class="header_text_color quick_nav_small_title_text">Button Border Color</h1>
         </div>
     </div>
     <a id="masked_download_button" href="" download></a>

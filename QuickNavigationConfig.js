@@ -1,6 +1,7 @@
 class Config {
     Name = "Unknown Config"
     Sections = []
+    Settings = {}
 }
 
 class Section {

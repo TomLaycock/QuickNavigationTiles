@@ -120,6 +120,8 @@ function convertJSONtoConfig(configJSON) {
         config.Sections.push(newSection);
     });
 
+    config.Settings = configJSON.Settings;
+
     return config;
 }
 
@@ -200,6 +202,43 @@ function activateConfig(configName) {
 
         SectionCounter += 1;
     });
+
+    if (Configs[configName].Settings != undefined && Configs[configName].Settings != null) {
+        if (Configs[configName].Settings["BGC"] != null) {
+            ChangeBackgroundColor(Configs[configName].Settings["BGC"]);
+            GetElmByID("background_color_selector").value = Configs[configName].Settings["BGC"];
+        }
+
+        if (Configs[configName].Settings["MBGC"] != null) {
+            ChangeMainBackgroundColor(Configs[configName].Settings["MBGC"]);
+            GetElmByID("main_background_color_selector").value = Configs[configName].Settings["MBGC"];
+        }
+
+        if (Configs[configName].Settings["SBGC"] != null) {
+            ChangeSubBackgroundColor(Configs[configName].Settings["SBGC"]);
+            GetElmByID("sub_background_color_selector").value = Configs[configName].Settings["SBGC"];
+        }
+
+        if (Configs[configName].Settings["MBOC"] != null) {
+            ChangeMainBorderColor(Configs[configName].Settings["MBOC"]);
+            GetElmByID("main_border_color_selector").value = Configs[configName].Settings["MBOC"];
+        }
+
+        if (Configs[configName].Settings["BBGC"] != null) {
+            ChangeButtonBackgroundColor(Configs[configName].Settings["BBGC"]);
+            GetElmByID("button_background_color_selector").value = Configs[configName].Settings["BBGC"];
+        }
+
+        if (Configs[configName].Settings["BBFGC"] != null) {
+            ChangeButtonBackgroundFadeColor(Configs[configName].Settings["BBFGC"]);
+            GetElmByID("button_background_fade_color_selector").value = Configs[configName].Settings["BBFGC"];
+        }
+
+        if (Configs[configName].Settings["BBOGC"] != null) {
+            ChangeButtonBorderColor(Configs[configName].Settings["BBOGC"]);
+            GetElmByID("button_border_color_selector").value = Configs[configName].Settings["BBOGC"];
+        }
+    }
 
     if (configName != "Default") {
         SaveConfigToStorage(configName, JSON.stringify(Configs[configName]));
@@ -320,16 +359,6 @@ function AddQuickNavButtonToSection(SectionName) {
 
     activateConfig(CurrentActiveConfig);
     CloseAllMenus();
-
-    /*SaveConfigToStorage(CurrentActiveConfig, JSON.stringify(Configs[CurrentActiveConfig]));
-
-    var Section = GetElmByID(SectionName);
-
-    var newContainer = CreateNavLinkContainer();
-    AddNavLinkToContainer(newContainer, NewNavLink);
-    AddNavLinkContainerToSection(Section, newContainer);
-
-    CloseAllMenus();*/
 }
 
 function DeleteProfile() {
@@ -481,6 +510,8 @@ function createDefaultConfig() {
     config.Sections.push(WebsitesSection);
     config.Sections.push(SocialsSection);
 
+    config.Settings = { "BGC": "#696969", "MBGC": "#bababa", "SBGC": "#a8a8a8", "MBOC": "#8a8a8a", "BBGC": "#ababab", "BBFGC": "#787878", "BBOGC": "#4d4d4d" }
+
     Configs[config.Name] = config;
     ConfigNames.push(config.Name);
     addConfigToSelector(config.Name);
@@ -498,6 +529,46 @@ var ResetDataAtStart = false;
 function CompleteReset() {
     window.localStorage.clear();
     SaveCurrentActiveConfig("Default");
+}
+
+/* Settings for Colors */
+function UpdateColor(ColorToUpdate, Event) {
+    var CurrentActiveConfigName = GetCurrentActiveConfig();
+
+    switch (ColorToUpdate) {
+        case "BGC":
+            Configs[CurrentActiveConfigName].Settings[ColorToUpdate] = Event.target.value;
+            ChangeBackgroundColor(Event);
+            break;
+        case "MBGC":
+            Configs[CurrentActiveConfigName].Settings[ColorToUpdate] = Event.target.value;
+            ChangeMainBackgroundColor(Event);
+            break;
+        case "SBGC":
+            Configs[CurrentActiveConfigName].Settings[ColorToUpdate] = Event.target.value;
+            ChangeSubBackgroundColor(Event);
+            break;
+        case "MBOC":
+            Configs[CurrentActiveConfigName].Settings[ColorToUpdate] = Event.target.value;
+            ChangeMainBorderColor(Event);
+            break;
+        case "BBGC":
+            Configs[CurrentActiveConfigName].Settings[ColorToUpdate] = Event.target.value;
+            ChangeButtonBackgroundColor(Event);
+            break;
+        case "BBFGC":
+            Configs[CurrentActiveConfigName].Settings[ColorToUpdate] = Event.target.value;
+            ChangeButtonBackgroundFadeColor(Event);
+            break;
+        case "BBOGC":
+            Configs[CurrentActiveConfigName].Settings[ColorToUpdate] = Event.target.value;
+            ChangeButtonBorderColor(Event);
+            break;
+    }
+
+    if (CurrentActiveConfigName != "Default") {
+        SaveConfigToStorage(CurrentActiveConfigName, JSON.stringify(Configs[CurrentActiveConfigName]));
+    }
 }
 
 /*
@@ -519,6 +590,7 @@ window.onload = function() {
     AddClickListnerToButton(GetElmByID("quick_nav_add_section_to_config_button"), addSection);
     AddClickListnerToButton(GetElmByID("quick_nav_delete_profile_button"), DeleteProfile);
     AddClickListnerToButton(GetElmByID("quick_nav_new_profile_button"), NewProfile);
+    AddClickListnerToButton(GetElmByID("quick_nav_settings_button"), OpenMenu.bind(this, "quick_nav_settings_menu"))
 
     Array.from(GetElmsByCls("close_button")).forEach(function(Button) {
         AddClickListnerToButton(Button, CloseAllMenus);
@@ -528,4 +600,25 @@ window.onload = function() {
         activateConfig(event.target.value);
         SaveCurrentActiveConfig(event.target.value);
     });
+
+    GetElmByID("background_color_selector").addEventListener("input", UpdateColor.bind(this, "BGC"), false);
+    GetElmByID("background_color_selector").addEventListener("change", UpdateColor.bind(this, "BGC"), false);
+
+    GetElmByID("main_background_color_selector").addEventListener("input", UpdateColor.bind(this, "MBGC"), false);
+    GetElmByID("main_background_color_selector").addEventListener("change", UpdateColor.bind(this, "MBGC"), false);
+
+    GetElmByID("sub_background_color_selector").addEventListener("input", UpdateColor.bind(this, "SBGC"), false);
+    GetElmByID("sub_background_color_selector").addEventListener("change", UpdateColor.bind(this, "SBGC"), false);
+
+    GetElmByID("main_border_color_selector").addEventListener("input", UpdateColor.bind(this, "MBOC"), false);
+    GetElmByID("main_border_color_selector").addEventListener("change", UpdateColor.bind(this, "MBOC"), false);
+
+    GetElmByID("button_background_color_selector").addEventListener("input", UpdateColor.bind(this, "BBGC"), false);
+    GetElmByID("button_background_color_selector").addEventListener("change", UpdateColor.bind(this, "BBGC"), false);
+
+    GetElmByID("button_background_fade_color_selector").addEventListener("input", UpdateColor.bind(this, "BBFGC"), false);
+    GetElmByID("button_background_fade_color_selector").addEventListener("change", UpdateColor.bind(this, "BBFGC"), false);
+
+    GetElmByID("button_border_color_selector").addEventListener("input", UpdateColor.bind(this, "BBOGC"), false);
+    GetElmByID("button_border_color_selector").addEventListener("change", UpdateColor.bind(this, "BBOGC"), false);
 }
