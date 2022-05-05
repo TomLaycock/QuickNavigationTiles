@@ -1,5 +1,5 @@
 var QuickNavigationStyleSheet = null;
-var StylesToAllowEditingFor = [".background_color", ".detail_color", ".sub_detail_color", ".button_gradient"];
+var StylesToAllowEditingFor = [".background_color", ".detail_color", ".sub_detail_color", ".button_gradient", ".quick_nav_content_area", ".section_container"];
 var EditableStyles = {}
 
 for (let index = 0; index < document.styleSheets.length; index++) {
@@ -16,6 +16,26 @@ StylesToAllowEditingFor.forEach(StyleName => {
         }
     }
 });
+
+function ToggleColumnMode() {
+    if (EditableStyles[".quick_nav_content_area"].style.flexDirection == "column") {
+        EditableStyles[".quick_nav_content_area"].style.flexDirection = "row";
+
+        EditableStyles[".section_container"].style.width = "46%";
+        EditableStyles[".section_container"].style.border = "2px solid #222222";
+        EditableStyles[".section_container"].style.borderRadius = "10px";
+        EditableStyles[".section_container"].style.margin = "10px";
+        EditableStyles[".section_container"].style.padding = "10px";
+    } else {
+        EditableStyles[".quick_nav_content_area"].style.flexDirection = "column";
+
+        EditableStyles[".section_container"].style.width = "98%";
+        EditableStyles[".section_container"].style.border = "";
+        EditableStyles[".section_container"].style.borderRadius = "";
+        EditableStyles[".section_container"].style.margin = "";
+        EditableStyles[".section_container"].style.padding = "";
+    }
+}
 
 function ChangeBackgroundColor(ValueToSet) {
     if (typeof ValueToSet === 'string')
