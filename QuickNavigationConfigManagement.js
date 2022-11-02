@@ -341,9 +341,9 @@ function AddQuickNavButtonToSection(SectionName) {
 
     var LinkElement = GetElmByID("quick_nav_new_link_link_text");
     var LinkElementValue = LinkElement.value;
-    if (!LinkElementValue.includes("https://")) {
+    /*if (!LinkElementValue.includes("https://") || !LinkElementValue.includes("http://")) {
         LinkElementValue = "https://" + LinkElementValue;
-    }
+    }*/
     NewNavLink.Link = LinkElementValue;
     LinkElement.value = "";
 
