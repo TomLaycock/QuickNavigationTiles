@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'customFont';
+    src: url('../fonts/custom.ttf');
+}
+
+* {
+    padding: unset;
+    margin: unset;
+    border: unset;
+    text-align: unset;
+    color: unset;
+    background-color: unset;
+    font-size: unset;
+    font-family: 'customFont';
+    margin-block: unset;
+    margin-inline: unset;
+    font-weight: unset;
+    display: block;
+}
+
+h6 {
+    color: #5eddbd;
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+p {
+    padding-top: 5px;
+    color: #FFFFFF;
+    font-weight: 100;
+    font-size: 1em;
+}
