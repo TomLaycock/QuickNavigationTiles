@@ -71,6 +71,15 @@ class ElementBuilder {
         return this;
     }
 
+    StepToParent_NTimes(times = 1) {
+        for (var i = 0; i < times; i++) {
+            if (!IsNullOrUndefined(this.currentElement.parentElement)) {
+                this.currentElement = this.currentElement.parentElement;
+            }
+        }
+        return this;
+    }
+
     ReturnResult() {
         while (this.currentElement.parentElement != null) {
             this.currentElement = this.currentElement.parentElement;

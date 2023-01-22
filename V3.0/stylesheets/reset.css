@@ -18,6 +18,12 @@
     display: block;
 }
 
+h1 {
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 2em;
+}
+
 h6 {
     color: #5eddbd;
     font-weight: 800;

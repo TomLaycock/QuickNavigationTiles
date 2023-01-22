@@ -1,3 +1,5 @@
+/* MODAL */
+
 #modal_container {
     width: 100%;
     height: 100%;
@@ -26,6 +28,9 @@
     padding: 1em;
 }
 
+
+/* CLOSE BUTTON */
+
 #modal_close_button {
     width: 1.3em;
     height: 1.3em;
@@ -44,6 +49,12 @@
     opacity: 0.2;
     position: absolute;
     border-radius: 50%;
+    transition: 0.2s ease;
+}
+
+#modal_close_button_background:hover {
+    opacity: 0.5;
+    transition: 0.2s ease;
 }
 
 #modal_close_button_content {
@@ -56,4 +67,63 @@
     align-content: center;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+
+/* MODAL CONTROLS */
+
+#modal_controls {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+.modal_control {
+    display: flex;
+    border-radius: 0.75em;
+    cursor: pointer;
+    min-width: 80px;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px 10px 0px 10px;
+    transition: 0.2s ease;
+}
+
+.modal_control p {
+    padding: 0.5em;
+}
+
+#modal_cancel {
+    background-color: #cc6c6c;
+    filter: unset;
+}
+
+#modal_cancel:hover {
+    background-color: #e07878;
+    filter: drop-shadow(0px 0px 2px #e07878);
+}
+
+#modal_confirm {
+    background-color: #51c4a7;
+    filter: unset;
+}
+
+#modal_confirm:hover {
+    background-color: #5eddbd;
+    filter: drop-shadow(0px 0px 2px #5eddbd);
+}
+
+#modal_info {
+    background-color: #5696ca;
+    filter: unset;
+}
+
+#modal_info:hover {
+    background-color: #61a8e2;
+    filter: drop-shadow(0px 0px 2px #61a8e2);
 }

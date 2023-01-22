@@ -139,7 +139,7 @@ function SetSectionSpacerOn(element) {
 
     if (element.clientY <= bounds.top + (elementHeight / 2)) {
         topSpacer[0].style.width = "100%";
-        topSpacer[0].style.height = "10px";
+        topSpacer[0].style.height = "14px";
 
         topSpacerSub.style.width = "100%";
         topSpacerSub.style.height = "10px";
@@ -156,7 +156,7 @@ function SetSectionSpacerOn(element) {
         bottomSpacerSub.style.borderRadius = null;
     } else {
         bottomSpacer[0].style.width = "100%";
-        bottomSpacer[0].style.height = "10px";
+        bottomSpacer[0].style.height = "14px";
 
         bottomSpacerSub.style.width = "100%";
         bottomSpacerSub.style.height = "10px";
