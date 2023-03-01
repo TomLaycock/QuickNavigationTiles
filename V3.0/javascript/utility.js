@@ -11,7 +11,7 @@ function IsNullOrUndefined(value) {
 }
 
 function FindChildById(element, id) {
-    console.log(element);
+    //console.log(element);
     for (let index = 0; index < element.childNodes.length; index++) {
         if (element.childNodes[index].id == id) {
             return element.childNodes[index];

@@ -1,0 +1,7 @@
+"qnt_saved_data"
+  desc:     Keeps track of saved values, add development modal to allow removal of these
+  default:  empty array
+
+"first_time_load"
+  desc:     Lets the program know if this is the firt time being loaded
+  default:  null

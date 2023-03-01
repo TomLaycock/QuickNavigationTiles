@@ -21,7 +21,13 @@ class ElementBuilder {
 
         var newElement = document.createElement(type);
         if (!IsNullOrUndefined(id)) newElement.id = id;
-        if (!IsNullOrUndefined(styles)) newElement.classList.add(styles);
+
+        if (!IsNullOrUndefined(styles)) {
+          styles.split(" ").forEach(class_ => {
+            newElement.classList.add(class_);
+          });
+        }
+        //if (!IsNullOrUndefined(styles)) newElement.classList.add(styles);
         this.currentElement.appendChild(newElement);
         if (stepToChild) this.currentElement = newElement;
         return this;

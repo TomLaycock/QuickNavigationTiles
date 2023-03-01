@@ -9,6 +9,12 @@ function Add_Settings_Modal_Content() {
         .AddChild("p")
         .Custom(AddInnerHtml, "Development Version: 1.0.0")
         .ReturnToRoot()
+        .AddChild("div", null, "modal_2_col")
+        .AddChild("p")
+        .Custom(AddInnerHtml, "Stored Data:")
+        .StepToParent_NTimes(1)
+        .Custom(AddButton, "default", "View", HideModal, "no_margin")
+        .StepToParent_NTimes(1)
         .AddChild("div", "modal_controls")
         .Custom(AddButton, "cancel", "Close", HideModal);
 

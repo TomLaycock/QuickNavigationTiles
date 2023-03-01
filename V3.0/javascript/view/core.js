@@ -1,8 +1,8 @@
 function Initialise_QuickNav() {
     var NavBar_Builder = Build_NavBar();
     var NavBar_Element = NavBar_Builder.ReturnResult();
-    console.log(NavBar_Element);
-    console.log(NavBar_Element.childNodes);
+    //console.log(NavBar_Element);
+    //console.log(NavBar_Element.childNodes);
     document.body.append(NavBar_Element);
 
     var NavBarControls = FindChildById(NavBar_Element, "navbar_controls");

@@ -36,3 +36,7 @@ p {
     font-weight: 100;
     font-size: 1em;
 }
+
+.no_margin {
+  margin: 0px !important;
+}
