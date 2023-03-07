@@ -13,7 +13,7 @@ function Add_Settings_Modal_Content() {
         .AddChild("p")
         .Custom(AddInnerHtml, "Stored Data:")
         .StepToParent_NTimes(1)
-        .Custom(AddButton, "default", "View", HideModal, "no_margin")
+        .Custom(AddButton, "default", "View", ShowModal_AddContent.bind(this, Add_Settings_Tracked_Data_Modal_Content, false), "no_margin")
         .StepToParent_NTimes(1)
         .AddChild("div", "modal_controls")
         .Custom(AddButton, "cancel", "Close", HideModal);

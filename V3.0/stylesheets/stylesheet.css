@@ -60,3 +60,31 @@ body {
         transform: rotateZ(360deg);
     }
 }
+
+.scrollable_content {
+  overflow-y: scroll;
+}
+
+.max_height_10vh {
+  height: auto;
+  max-height: 10vh;
+}
+
+.max_height_30vh {
+  height: auto;
+  max-height: 30vh;
+}
+
+.two_px_vertical_margin {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.ten_px_right_margin {
+  margin-right: 10px;
+}
+
+.data_text {
+  color: #FFFFFF;
+  font-family: 'customFont';
+}
