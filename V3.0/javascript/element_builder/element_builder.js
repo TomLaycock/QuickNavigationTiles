@@ -23,9 +23,9 @@ class ElementBuilder {
         if (!IsNullOrUndefined(id)) newElement.id = id;
 
         if (!IsNullOrUndefined(styles)) {
-          styles.split(" ").forEach(class_ => {
-            newElement.classList.add(class_);
-          });
+            styles.split(" ").forEach(class_ => {
+                newElement.classList.add(class_);
+            });
         }
         //if (!IsNullOrUndefined(styles)) newElement.classList.add(styles);
         this.currentElement.appendChild(newElement);

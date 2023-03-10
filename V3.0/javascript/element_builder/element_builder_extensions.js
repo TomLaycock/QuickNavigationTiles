@@ -1,15 +1,28 @@
 function AddInnerHtml(builder, value) { builder.currentElement.innerHTML = value; return builder; }
 
-function AddClass(builder, classes) { 
-  classes.split(" ").forEach(class_ => {
-    builder.currentElement.classList.add(class_);
-  });
-  return builder; 
+function AddClass(builder, classes) {
+    classes.split(" ").forEach(class_ => {
+        builder.currentElement.classList.add(class_);
+    });
+    return builder;
 }
 
 function SetBackgroundImage(builder, value) { builder.currentElement.style.backgroundImage = "url('" + value + "')"; return builder; }
 
 function OnClick(builder, func) { AddClickListnerToButton(builder.currentElement, func); return builder; }
+
+function AddTextList(builder, ...Items) {
+    builder.AddChild("ul", null, "modal_list_ul");
+    AddItemsToList(builder, ...Items);
+    builder.StepToParent_NTimes(1);
+    return builder;
+}
+
+function AddItemsToList(builder, Item, ...Items) {
+    if (Item === undefined || Item === null) return;
+    builder.AddChild("li", null, "modal_list_li").Custom(AddInnerHtml, Item).StepToParent_NTimes(1);
+    AddItemsToList(builder, ...Items);
+}
 
 function AddButton(builder, value, text, func, classes) {
     switch (value) {

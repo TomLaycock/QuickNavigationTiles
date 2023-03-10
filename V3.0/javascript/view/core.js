@@ -7,7 +7,7 @@ function Initialise_QuickNav() {
 
     var NavBarControls = FindChildById(NavBar_Element, "navbar_controls");
 
-    var NavBar_NewsButton_Builder = Build_MenuButton(ShowModal_AddContent.bind(this, Add_Welcome_Modal_Content, false)).Custom(SetBackgroundImage, "images/news.png");
+    var NavBar_NewsButton_Builder = Build_MenuButton(ShowModal_AddContent.bind(this, Add_News_Modal_Content, false)).Custom(SetBackgroundImage, "images/news.png");
     NavBarControls.append(NavBar_NewsButton_Builder.ReturnResult());
 
     var NavBar_ProfilesButton_Builder = Build_MenuButton(ShowModal_AddContent.bind(this, Add_Welcome_Modal_Content, false)).Custom(SetBackgroundImage, "images/profiles.png");

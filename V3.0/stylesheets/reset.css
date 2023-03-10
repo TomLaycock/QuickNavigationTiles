@@ -30,6 +30,13 @@ h6 {
     font-size: 1.2em;
 }
 
+h7 {
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 1em;
+    font-weight: 800;
+}
+
 p {
     padding-top: 5px;
     color: #FFFFFF;
@@ -38,5 +45,5 @@ p {
 }
 
 .no_margin {
-  margin: 0px !important;
+    margin: 0px !important;
 }
