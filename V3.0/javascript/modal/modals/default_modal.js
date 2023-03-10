@@ -1,6 +1,6 @@
 function AddDefaultContent() {
     var builder = new ElementBuilder("div", "modal_content");
-    builder.AddChild("h6")
+    builder.AddChild("h6", null, "modal_title_padding")
         .Custom(AddInnerHtml, "Modal Title")
         .ReturnToRoot()
         .AddChild("p")

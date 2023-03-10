@@ -1,6 +1,6 @@
 function Add_Welcome_Modal_Content() {
     var builder = new ElementBuilder("div", "modal_content");
-    builder.AddChild("h6")
+    builder.AddChild("h6", null, "modal_title_padding")
         .Custom(AddInnerHtml, "Welcome to Quick Nav 3.0")
         .ReturnToRoot()
         .AddChild("p")

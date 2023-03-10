@@ -26,12 +26,14 @@
 
 #modal_content {
     padding: 1em;
+    max-width: 50vw;
 }
 
 
 /* CONTENT */
+
 .modal_2_col {
-  display: flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
 }
@@ -137,11 +139,15 @@
 }
 
 .modal_button_default {
-  background-color: #838383;
-  filter: unset;
+    background-color: #838383;
+    filter: unset;
 }
 
 .modal_button_default:hover {
-  background-color: #979797;
-  filter: drop-shadow(0px 0px 2px #979797);
+    background-color: #979797;
+    filter: drop-shadow(0px 0px 2px #979797);
+}
+
+.modal_title_padding {
+    margin-right: 20px;
 }
