@@ -16,7 +16,7 @@ body {
 
 #navbar_title {
     width: auto;
-    min-width: 25%;
+    /*min-width: 25%;*/
     margin-left: 10px;
     margin-right: 10px;
     display: flex;
@@ -62,29 +62,126 @@ body {
 }
 
 .scrollable_content {
-  overflow-y: scroll;
+    overflow-y: scroll;
 }
 
 .max_height_10vh {
-  height: auto;
-  max-height: 10vh;
+    height: auto;
+    max-height: 10vh;
 }
 
 .max_height_30vh {
-  height: auto;
-  max-height: 30vh;
+    height: auto;
+    max-height: 30vh;
 }
 
 .two_px_vertical_margin {
-  margin-top: 2px;
-  margin-bottom: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.two_px_top_margin {
+    margin-top: 10px;
+}
+
+.two_px_bottom_margin {
+    margin-bottom: 10px;
 }
 
 .ten_px_right_margin {
-  margin-right: 10px;
+    margin-right: 10px;
+}
+
+.ten_px_margin_top {
+    margin-top: 10px;
 }
 
 .data_text {
-  color: #FFFFFF;
-  font-family: 'customFont';
+    color: #FFFFFF;
+    font-family: 'customFont';
+}
+
+.element_button {
+    border-radius: 50px;
+    border: 2px solid #FFFFFF;
+    width: 80px;
+    height: 80px;
+    margin: 0px 5px 0px 5px;
+}
+
+.element_button p {
+    font-size: 20px;
+    font-weight: 800;
+    transition: 0.1s ease;
+}
+
+.element_button:hover p {
+    font-size: 30px;
+    font-weight: 800;
+    filter: drop-shadow(0px 0px 2px #ffffff);
+    transition: 0.1s ease;
+}
+
+.profile_selector_image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.1s ease;
+}
+
+.profile_hover_selector {
+    justify-content: flex-start;
+}
+
+.profile_hover_selector:hover {
+    cursor: pointer;
+}
+
+.profile_hover_selector:hover .profile_selector_image {
+    transform: scale(1.05);
+    transition: 0.1s ease;
+    filter: drop-shadow(0px 0px 2px #ffffff);
+}
+
+.profile_selector_text {
+    width: 100%;
+    max-width: 80px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.profile_selector_text:hover {
+    cursor: pointer;
+}
+
+.divider_bar {
+    width: 2px;
+    height: 30px;
+    align-self: center;
+    background-color: #FFFFFF;
+}
+
+.navbar_icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    align-self: center;
+}
+
+.navbar_profile_text {
+    align-self: center;
+}
+
+#navbar_selected_profile {
+    display: flex;
+    flex-direction: row;
+}
+
+#navbar_selected_profile_interior {
+    display: flex;
+    flex-direction: row;
 }

@@ -5,12 +5,14 @@ function Initialise_QuickNav() {
     //console.log(NavBar_Element.childNodes);
     document.body.append(NavBar_Element);
 
+    AddSelectedProfileInformation();
+
     var NavBarControls = FindChildById(NavBar_Element, "navbar_controls");
 
     var NavBar_NewsButton_Builder = Build_MenuButton(ShowModal_AddContent.bind(this, Add_News_Modal_Content, false)).Custom(SetBackgroundImage, "images/news.png");
     NavBarControls.append(NavBar_NewsButton_Builder.ReturnResult());
 
-    var NavBar_ProfilesButton_Builder = Build_MenuButton(ShowModal_AddContent.bind(this, Add_Welcome_Modal_Content, false)).Custom(SetBackgroundImage, "images/profiles.png");
+    var NavBar_ProfilesButton_Builder = Build_MenuButton(ShowModal_AddContent.bind(this, Add_Profile_Management_Modal_Content, false)).Custom(SetBackgroundImage, "images/profiles.png");
     NavBarControls.append(NavBar_ProfilesButton_Builder.ReturnResult());
 
     var NavBar_SettingsButton_Builder = Build_MenuButton(ShowModal_AddContent.bind(this, Add_Settings_Modal_Content, false)).Custom(SetBackgroundImage, "images/settings.png");
