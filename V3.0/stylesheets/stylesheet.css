@@ -185,3 +185,18 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+.info_panel p {
+    color: #c7c7c7;
+}
+
+.info_panel_image {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    min-height: 20px;
+    margin-right: 10px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

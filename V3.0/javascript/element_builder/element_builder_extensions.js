@@ -24,6 +24,20 @@ function AddItemsToList(builder, Item, ...Items) {
     AddItemsToList(builder, ...Items);
 }
 
+function AddInformationPanel(builder, type, text) {
+    var imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Info_icon_002.svg/480px-Info_icon_002.svg.png";
+
+    builder.AddChild("div", null, "modal_2_col info_panel")
+        .AddChild("div", null, "info_panel_image")
+        .Custom(SetBackgroundImage, imageUrl)
+        .StepToParent_NTimes(1)
+        .AddChild("p")
+        .Custom(AddInnerHtml, text)
+        .StepToParent_NTimes(2);
+
+    return builder;
+}
+
 function AddInput(builder, type, fieldName, placeholder, inputClasses, includeLabel, labelClasses) {
     var idSafeString = fieldName.replace(/\s/g, "");
 

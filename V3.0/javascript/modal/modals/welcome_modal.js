@@ -7,7 +7,7 @@ function Add_Welcome_Modal_Content() {
         .Custom(AddInnerHtml, "This appears to be your first time using Quick Nav 3.0, Follow the next steps to setup the initial program.")
         .ReturnToRoot()
         .AddChild("div", "modal_controls")
-        .Custom(AddButton, "info", "Continue", HideModal);
+        .Custom(AddButton, "info", "Continue", ShowModal_AddContent.bind(this, Add_Welcome_Profile_Creation_Modal_Content, false));
 
     var modal = FindChildById(active_modal, "modal");
     modal.append(builder.ReturnResult());

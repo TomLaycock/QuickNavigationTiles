@@ -1,7 +1,28 @@
+/* OBJECTS */
+
 class ProfileSelectorData {
     profileName = null
     profileImageUrl = null
 }
+
+class Profile {
+    Name = null
+    Sections = []
+}
+
+class Section {
+    Name = null
+    QuickNavLinks = []
+}
+
+class QuickNavLink {
+    Name = null
+    Link = null
+    Target = null
+    AltImgUrl = null
+}
+
+/* DATA MANAGEMENT */
 
 function GetTrackedProfiles() {
     var saved_data = GetItem("qnt_saved_profiles");
@@ -24,6 +45,9 @@ function GetActiveProfile() {
     console.log(activeProfileData);
     return activeProfileData;
 }
+
+
+/* UTILITY */
 
 function CreateProfile(name, imageUrl) {
     var profiles = GetTrackedProfiles();
