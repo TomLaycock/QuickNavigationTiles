@@ -1,0 +1,127 @@
+<html>
+<head>
+<style>
+  body {
+  background-color: #1c1c1c;
+}
+
+.animate {
+  background-color: white;
+  position: relative;
+  height: 50px;
+  width: 59px;
+  animation-name: mousein;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+
+/*To play when you hold on left click*/
+
+@keyframes mousein {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: var(--mousein);
+  }
+  /*to hold when the animation has finished but you dont release*/
+}
+
+
+/* to be played when the mouse is let go of */
+
+@keyframes mouseout {
+  0% {
+    rotate: var(--mousein);
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+
+#circle {
+  background-color: unset;
+  border: 0px solid white;
+  border-radius: 50%;
+  position: relative;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.13,1.15,.72,.95);
+  position: absolute;
+}
+
+
+@keyframes circleAnim {
+  0% {
+    border-color: #FFFFFF;
+    width: 0px;
+    height: 0px;
+    transform: translate(0px, 0px);
+    border-width: 0px;
+  }
+  99% {
+    border-color: #FFFFFF;
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+    transform: translate(-25px, -25px);
+    border-width: 2px;
+    border-color: #2fdbb0;
+  }
+}
+</style>
+
+<script>
+  // i did not include the use of a variable to track states as setProperty
+// and the very eventListener does that for this example... this can easily be reimplemented
+var mouseIsDown = false;
+
+// pass in the varaible name and value, since they
+// are the finish of in and start of out, their 
+// values can be the same value at the same time so only
+// one variable is needed to manipulate both keyframe animations
+// set the css variable value initially
+document.onload = function() {
+
+  document.getElementById("circle").style.width = "0px";
+  document.getElementById("circle").style.height = "0px";
+
+}
+
+// the event listener for mousedown
+window.addEventListener('mousedown', function() {
+  // set the mousein variable to 45deg
+  document.getElementById("circle").style.animationName = "circleAnim";
+  document.getElementById("circle").style.width = "0px";
+  document.getElementById("circle").style.height = "0px";
+});
+
+window.addEventListener('mouseup', function() {
+  // set the mousein variable to 0deg
+  document.getElementById("circle").style.animationName = "unset";
+  document.getElementById("circle").style.width = "0px";
+  document.getElementById("circle").style.height = "0px";
+});
+
+window.onmousemove = function (e) {
+  var tooltipSpan = document.getElementById("circle");
+
+    var x = e.clientX;
+    var y = e.clientY;
+
+    console.log(x + "   " + y);
+
+    tooltipSpan.style.top = (y) + 'px';
+    tooltipSpan.style.left = (x) + 'px';
+};
+</script>
+</head>
+<body>
+  <div class="animate">
+  </div>
+
+  <div id="circle"></div>
+</body>
+</html>

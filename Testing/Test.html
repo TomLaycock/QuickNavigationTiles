@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Drag and Drop Icons</title>
+  <style>
+    .icon {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 10px;
+      position: relative;
+      transition: background-color 0.3s;
+    }
+
+    .icon:hover {
+      background-color: #f9f9f9;
+    }
+
+    .highlight {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.2);
+      pointer-events: none;
+      transition: opacity 0.3s;
+      opacity: 0;
+    }
+
+    .highlight.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="icon"></div>
+  <div class="icon"></div>
+  <div class="icon"></div>
+  <div class="highlight"></div>
+
+  <script>
+    var icons = document.querySelectorAll('.icon');
+    var highlight = document.querySelector('.highlight');
+
+    for (var i = 0; i < icons.length; i++) {
+      icons[i].addEventListener('dragenter', handleDragEnter);
+      icons[i].addEventListener('dragleave', handleDragLeave);
+    }
+
+    function handleDragEnter(event) {
+      highlight.classList.add('show');
+    }
+
+    function handleDragLeave(event) {
+      highlight.classList.remove('show');
+    }
+  </script>
+</body>
+</html>
