@@ -1,0 +1,174 @@
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 75%;
+}
+
+.element_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    pointer-events: none;
+}
+
+.link_element {
+    width: 50px;
+    height: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    transition: 0.15s linear;
+}
+
+.link_element_style {
+    width: 46px;
+    height: 46px;
+    background-color: rgb(191, 191, 191);
+    border: 2px solid #909090;
+    pointer-events: none;
+    border-radius: 50px;
+}
+
+.link_element_button {
+    width: 50px;
+    height: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    transition: 0.15s linear;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+}
+
+.link_element_tag {
+    pointer-events: none;
+    margin-top: 3px;
+    background-color: aquamarine;
+    color: #000000;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 90%;
+    height: 15px;
+    display: flex;
+}
+
+.link_element_text {
+    pointer-events: none;
+    color: #FFFFFF;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    word-wrap: normal;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.background_colour {
+    background-color: #787878;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+}
+
+.section_header {
+    font-size: 25px;
+    color: #FFFFFF;
+    padding-left: 5px;
+    pointer-events: none;
+}
+
+
+/* LINK ELEMENT SPACER HOVER */
+
+.is {
+    width: 0px;
+    box-sizing: content-box;
+    display: flex;
+    transition: 0.15s ease;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    pointer-events: all;
+}
+
+.is:hover {
+    width: 50px;
+    box-sizing: content-box;
+    display: flex;
+    transition: 0.15s ease;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.drop_style {
+    display: flex;
+    width: 0px;
+    height: 46px;
+    content: none;
+    transition: 0.15s ease;
+    border: 0px solid transparent;
+    pointer-events: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.is:hover>.drop_style {
+    display: flex;
+    width: 46px;
+    height: 46px;
+    content: "+";
+    border-radius: 50px;
+    transition: 0.15s ease;
+    border: 2px solid #cdcdcd;
+    pointer-events: none;
+}
+
+
+/* SECTION SPACER HOVER */
+
+.section_spacer {
+    width: 0px;
+    height: 0px;
+    display: flex;
+    transition: 0.15s ease;
+    pointer-events: all;
+}
+
+.section_spacer:hover {
+    width: 100%;
+    height: 14px;
+    display: flex;
+    transition: 0.15s ease;
+    cursor: pointer;
+}
+
+.section_spacer_style {
+    display: flex;
+    width: 0px;
+    height: 10px;
+    content: none;
+    transition: 0.15s ease;
+    border: 0px solid transparent;
+    pointer-events: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.section_spacer:hover>.section_spacer_style {
+    display: flex;
+    width: 100%;
+    height: 10px;
+    content: "+";
+    border-radius: 50px;
+    transition: 0.15s ease;
+    border: 2px solid #ffffff;
+    pointer-events: none;
+}
