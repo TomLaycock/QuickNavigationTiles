@@ -1,0 +1,29 @@
+.dropbox {
+    float: left;
+    width: 25%;
+    margin: 2%;
+    min-height: 120px;
+}
+.title {
+    margin-top: -20px;
+    text-align: center;
+}
+.number {
+    margin: 2px;
+    padding: 5px;
+    float: left;
+    border: solid thin #5a5555;
+    background-color: white;
+}
+.sortbox {
+    border: 0;
+    color: black;
+}
+.evenbox {
+    border: solid medium blue;
+    color: blue;
+}
+.oddbox {
+    border: solid medium red;
+    color: red;
+}
