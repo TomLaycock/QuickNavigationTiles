@@ -13,6 +13,14 @@ function OnClick(builder, func) { AddClickListnerToButton(builder.currentElement
 
 function SetAttribute(builder, attributeName, attributeValue) { builder.currentElement.setAttribute(attributeName, attributeValue); return builder; }
 
+function BindOnMouseDown(builder, boundFunction, ...boundVars) {
+    builder.currentElement.onmousedown = function(event) {
+        boundFunction(event, boundVars);
+    };
+
+    return builder;
+}
+
 function AddTextList(builder, ...Items) {
     builder.AddChild("ul", null, "modal_list_ul");
     AddItemsToList(builder, ...Items);

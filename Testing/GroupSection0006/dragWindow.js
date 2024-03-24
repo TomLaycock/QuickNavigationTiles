@@ -1,51 +1,113 @@
 var elementLookup = {
     "section_template" : {
         classes : "section",
+        editorClasses : "section",
+        initialEditorSectionClasses : "edit_container col",
+        editorSectionClasses : "edit_container col",
+        editorContainerSectionClasses : "edit_container col editor_full_content_width",
         acceptor : "add_section",
+        moveDetectorName : "move_section",
         innerdetector : "add_sub_section",
-        generateelement : null
+        nameField : "section name",
+        generateelement : function() {
+            var builder = new ElementBuilder("div", null, elementLookup["section_template"].editorClasses);
+
+            if (!IsNullOrUndefined(elementLookup["section_template"].innerdetector)) {
+                builder.AddChild("div", null, elementLookup["section_template"].initialEditorSectionClasses)
+                        .AddChild("div", elementLookup["section_template"].innerdetector, null, true)
+                        .Custom(SetAttribute, "data-location", "0")
+                        .Custom(AddInnerHtml, "+");
+            }
+
+            return builder.ReturnResult();
+        }
     },
 
 
     "section_row_template_100" : {
         classes : "section_row section_row_100",
+        editorClasses : "section_row editor_full_content_width",
+        initialEditorSectionClasses : "edit_container row",
+        editorSectionClasses : "edit_container section_row_100 row",
+        editorContainerSectionClasses : "edit_container col editor_full_content_width_offset",
         acceptor : "add_sub_section",
+        moveDetectorName : "move_sub_section",
         innerdetector : "add_group",
+        nameField : "row name",
         generateelement : null
     },
     "section_row_template_50" : {
         classes : "section_row section_row_50",
+        editorClasses : "section_row editor_full_content_width",
+        initialEditorSectionClasses : "edit_container row",
+        editorSectionClasses : "edit_container section_row_50 row",
+        editorContainerSectionClasses : "edit_container col editor_full_content_width_offset",
         acceptor : "add_sub_section",
+        moveDetectorName : "move_sub_section",
         innerdetector : "add_group",
+        nameField : "row name",
         generateelement : null
     },
 
 
     "section_col_template_100" : {
         classes : "section_col section_col_100",
+        editorClasses : "section_col editor_full_content_width",
+        initialEditorSectionClasses : "edit_container row",
+        editorSectionClasses : "edit_container section_col_100 row",
+        editorContainerSectionClasses : "edit_container col editor_full_content_width_offset",
         acceptor : "add_sub_section",
+        moveDetectorName : "move_sub_section",
         innerdetector : "add_group",
+        nameField : "column name",
         generateelement : null
     },
     "section_col_template_50" : {
         classes : "section_col section_col_50",
+        editorClasses : "section_col editor_full_content_width",
+        initialEditorSectionClasses : "edit_container row",
+        editorSectionClasses : "edit_container section_col_50 row",
+        editorContainerSectionClasses : "edit_container col editor_full_content_width_offset",
         acceptor : "add_sub_section",
+        moveDetectorName : "move_sub_section",
         innerdetector : "add_group",
+        nameField : "column name",
         generateelement : null
     },
 
 
     "group_template_100" : {
         classes : "group group_100",
+        editorClasses : "group editor_full_content_width",
+        initialEditorSectionClasses : "edit_container row",
+        editorSectionClasses : "edit_container group_100 row",
+        editorContainerSectionClasses : "edit_container col editor_full_content_width_offset",
         acceptor : "add_group",
+        moveDetectorName : "move_group",
         innerdetector : null,
+        nameField : "group name",
         generateelement : function() {
-            var builder = new ElementBuilder("div", null, elementLookup["group_template_100"].classes);
+            var builder = new ElementBuilder("div", null, elementLookup["group_template_100"].editorClasses);
 
             builder.AddChild("div", null, "element_container", true);
 
             return builder.ReturnResult();
         }
+    }
+}
+
+var acceptorColourLookup = {
+    "add_section" : {
+        default : "rgb(255, 146, 146)",
+        hover : "rgb(255, 100, 100)"
+    },
+    "add_sub_section" : {
+        default : "rgb(120, 255, 172)",
+        hover : "rgb(41, 255, 123)"
+    },
+    "add_group" : {
+        default : "rgb(158, 255, 242)",
+        hover : "rgb(62, 255, 229)"
     }
 }
 
@@ -105,6 +167,32 @@ function DragTemplateObject(e, draggedElement) {
     document.onmousemove = elementDrag;
 }
 
+function DragObject(e, draggedElement) {
+    e = e || window.event;
+    e.preventDefault();
+
+    mainContentDiv = document.getElementById("body");
+
+    console.log(draggedElement);
+
+	newWindowDiv = draggedElement[0].cloneNode(true);
+    newWindowDiv.className = "edit_container col drag_object";
+    //newWindowDiv.classList.add("drag_object");
+
+	mainContentDiv.appendChild(newWindowDiv);
+
+    newWindowDiv.style.left = (newWindowDiv.offsetLeft - (pos3 - e.clientX)) + "px";
+	newWindowDiv.style.top = (newWindowDiv.offsetTop - (pos4 - e.clientY)) + "px";
+
+	activeDragElement = newWindowDiv;
+
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+}
+
 function FullElementReset() {
     for (var key in elementLookup) {
         if (elementLookup.hasOwnProperty(key)) {
@@ -116,6 +204,7 @@ function FullElementReset() {
                 resetZone.onmouseleave = null;
                 resetZone.onmouseout = null;
                 resetZone.onmouseup = null;
+                resetZone.style.backgroundColor = acceptorColourLookup[value.acceptor].default;
             });
         }
     }
@@ -134,13 +223,13 @@ function BindTemplateButton(element) {
 
         dropZones.forEach(function(dropZone) {
             dropZone.onmouseover = function() {
-                dropZone.style.backgroundColor = "#FFFFFF";
+                dropZone.style.backgroundColor = acceptorColourLookup[elementLookup[activeDragElementType].acceptor].hover;
             }
             dropZone.onmouseleave = function() {
-                dropZone.style.backgroundColor = "#888888";
+                dropZone.style.backgroundColor = acceptorColourLookup[elementLookup[activeDragElementType].acceptor].default;
             }
             dropZone.onmouseout = function() {
-                dropZone.style.backgroundColor = "#888888";
+                dropZone.style.backgroundColor = acceptorColourLookup[elementLookup[activeDragElementType].acceptor].default;
             }
 
             dropZone.onmouseup = function() {
@@ -155,20 +244,26 @@ function BindTemplateButton(element) {
                     element = elementLookup[activeDragElementType].generateelement();
                 }
                 else {
-                    var builder = new ElementBuilder("div", null, elementLookup[activeDragElementType].classes);
+                    var builder = new ElementBuilder("div", null, elementLookup[activeDragElementType].editorClasses);
 
                     if (!IsNullOrUndefined(elementLookup[activeDragElementType].innerdetector)) {
-                        builder.AddChild("div", elementLookup[activeDragElementType].innerdetector, null, true).Custom(SetAttribute, "data-location", "0");
+                        builder.AddChild("div", null, elementLookup[activeDragElementType].initialEditorSectionClasses)
+                                .AddChild("div", elementLookup[activeDragElementType].innerdetector, null, true)
+                                .Custom(SetAttribute, "data-location", "0")
+                                .Custom(AddInnerHtml, "+");
                     }
 
                     element = builder.ReturnResult();
                 }
                 
-                var containerElement = dropZone.parentElement;
-                containerElement.insertBefore(element, dropZone);
+                var containerElement = dropZone.parentElement.parentElement;
+
+                var newContainerElement = new ElementBuilder("div", null, elementLookup[activeDragElementType].editorSectionClasses).ReturnResult();
+
+                //containerElement.insertBefore(element, dropZone);
 
                 // Update Existing
-                var detectorsToUpdate = dropZone.parentElement.querySelectorAll(dropZoneId);
+                var detectorsToUpdate = dropZone.parentElement.parentElement.querySelectorAll(dropZoneId);
 
                 detectorsToUpdate.forEach(function(detector) {
                     var detectorDataLocation = detector.getAttribute('data-location');
@@ -185,7 +280,23 @@ function BindTemplateButton(element) {
                 newAddDetector.innerHTML = "+";
                 newAddDetector.setAttribute('data-location', dataLocationNumber);
 
-                containerElement.insertBefore(newAddDetector, element);
+                newContainerElement.appendChild(newAddDetector);
+
+                var newSectionContainerBuilder = new ElementBuilder("div", null, elementLookup[activeDragElementType].editorContainerSectionClasses)
+                                            .AddChild("div", null, "row")
+                                            .AddChild("div", elementLookup[activeDragElementType].moveDetectorName, null, true);
+                                            
+                newSectionContainerBuilder.Custom(BindOnMouseDown, DragObject, newSectionContainerBuilder.currentElement.parentElement.parentElement)
+                                            .StepToParent_NTimes(1)
+                                            .Custom(AddInput, "text", "Name", elementLookup[activeDragElementType].nameField, "editor_input_box", false, null).ReturnResult();
+
+                var newSectionContainer = newSectionContainerBuilder.ReturnResult();
+
+                newSectionContainer.appendChild(element);
+
+                newContainerElement.appendChild(newSectionContainer);
+
+                containerElement.insertBefore(newContainerElement, dropZone.parentElement);
 
                 FullElementReset();
             }
