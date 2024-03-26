@@ -93,26 +93,58 @@ var elementLookup = {
 
             return builder.ReturnResult();
         }
-    }
+    },
+}
+
+var moveLookup = {
+  "move_section" : {
+    acceptor : "add_section"
+  },
+  "move_sub_section" : {
+    acceptor : "add_sub_section"
+  },
+  "move_group" : {
+    acceptor : "add_group"
+  }
 }
 
 var acceptorColourLookup = {
     "add_section" : {
         default : "rgb(255, 146, 146)",
-        hover : "rgb(255, 100, 100)"
+        hover : "rgb(255, 100, 100)",
+        neutral : "rgb(153 61 61)"
     },
     "add_sub_section" : {
         default : "rgb(120, 255, 172)",
-        hover : "rgb(41, 255, 123)"
+        hover : "rgb(41, 255, 123)",
+        neutral : "rgb(40 98 62)"
     },
     "add_group" : {
         default : "rgb(158, 255, 242)",
-        hover : "rgb(62, 255, 229)"
+        hover : "rgb(62, 255, 229)",
+        neutral : "rgb(65 127 119)"
+    },
+
+    "move_section" : {
+        default : "rgb(255, 146, 146)",
+        hover : "rgb(255, 100, 100)",
+        neutral : "rgb(153 61 61)"
+    },
+    "move_sub_section" : {
+        default : "rgb(120, 255, 172)",
+        hover : "rgb(41, 255, 123)",
+        neutral : "rgb(40 98 62)"
+    },
+    "move_group" : {
+        default : "rgb(158, 255, 242)",
+        hover : "rgb(62, 255, 229)",
+        neutral : "rgb(65 127 119)"
     }
 }
 
 var activeDragElement;
 var activeDragElementType;
+var overAcceptor = false;
 var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
 var section_container;
@@ -131,8 +163,12 @@ function elementDrag(e) {
     activeDragElement.style.left = (activeDragElement.offsetLeft - pos1) + "px";
 }
 
-function closeDragElement() {
-    activeDragElement.remove();
+function closeDragElement(deleteDragElement = false) {
+    if(deleteDragElement) {
+      activeDragElement.remove();
+    }
+    
+    activeDragElement = null;
 
     pos1 = 0;
     pos2 = 0;
@@ -141,6 +177,62 @@ function closeDragElement() {
 
     document.onmouseup = null;
     document.onmousemove = null;
+}
+
+function FullElementReset() {
+  for (var key in elementLookup) {
+      if (elementLookup.hasOwnProperty(key)) {
+          var value = elementLookup[key];
+
+          var lookupReset = section_container.querySelectorAll("#" + value.acceptor);
+          lookupReset.forEach(function(resetZone) {
+              resetZone.onmouseover = null;
+              resetZone.onmouseleave = null;
+              resetZone.onmouseout = null;
+              resetZone.onmouseup = null;
+              resetZone.style.backgroundColor = acceptorColourLookup[value.acceptor].default;
+          });
+      }
+  }
+
+  for (var key in moveLookup) {
+      if (moveLookup.hasOwnProperty(key)) {
+          var value = moveLookup[key];
+
+          var moveReset = section_container.querySelectorAll("#" + key);
+          moveReset.forEach(function(resetMoveAcceptor) {
+            resetMoveAcceptor.style.backgroundColor = acceptorColourLookup[key].default;
+          });
+      }
+  }   
+}
+
+function FullElementNeutral() {
+  for (var key in elementLookup) {
+      if (elementLookup.hasOwnProperty(key)) {
+          var value = elementLookup[key];
+
+          var lookupReset = section_container.querySelectorAll("#" + value.acceptor);
+          lookupReset.forEach(function(resetZone) {
+              resetZone.onmouseover = null;
+              resetZone.onmouseleave = null;
+              resetZone.onmouseout = null;
+              resetZone.onmouseup = null;
+              resetZone.style.backgroundColor = acceptorColourLookup[value.acceptor].neutral;
+          });
+      }
+  }
+
+  for (var key in moveLookup) {
+    if (moveLookup.hasOwnProperty(key)) {
+        var value = moveLookup[key];
+
+        var moveReset = section_container.querySelectorAll("#" + key);
+        moveReset.forEach(function(resetMoveAcceptor) {
+          resetMoveAcceptor.style.backgroundColor = acceptorColourLookup[key].neutral;
+        });
+    }
+  } 
 }
 
 function DragTemplateObject(e, draggedElement) {
@@ -163,11 +255,45 @@ function DragTemplateObject(e, draggedElement) {
     pos3 = e.clientX;
     pos4 = e.clientY;
 
-    document.onmouseup = closeDragElement;
+    document.onmouseup = function() {
+      closeDragElement(true);
+    };
     document.onmousemove = elementDrag;
 }
 
-function DragObject(e, draggedElement) {
+function BindDraggedElement(e, draggedElementIdType, draggedElement, originalParent) {
+  FullElementNeutral();
+
+  console.log(originalParent);
+
+  activeDragElementType = draggedElementIdType;
+  DragObject(e, draggedElement, originalParent);
+
+  var dropZoneId = "#" + moveLookup[activeDragElementType].acceptor;
+  var dropZones = section_container.querySelectorAll(dropZoneId);
+
+  console.log(dropZoneId);
+  console.log(dropZones);
+
+  dropZones.forEach(function(dropZone) {
+      dropZone.style.backgroundColor = acceptorColourLookup[moveLookup[activeDragElementType].acceptor].default;
+
+      dropZone.onmouseover = function() {
+          dropZone.style.backgroundColor = acceptorColourLookup[moveLookup[activeDragElementType].acceptor].hover;
+          overAcceptor = true;
+      }
+      dropZone.onmouseleave = function() {
+          dropZone.style.backgroundColor = acceptorColourLookup[moveLookup[activeDragElementType].acceptor].default;
+          overAcceptor = false;
+      }
+      dropZone.onmouseout = function() {
+          dropZone.style.backgroundColor = acceptorColourLookup[moveLookup[activeDragElementType].acceptor].default;
+          overAcceptor = false;
+      }
+  });
+}
+
+function DragObject(e, draggedElement, originalParent) {
     e = e || window.event;
     e.preventDefault();
 
@@ -175,7 +301,9 @@ function DragObject(e, draggedElement) {
 
     console.log(draggedElement);
 
-	newWindowDiv = draggedElement[0].cloneNode(true);
+    originalParent.style.display = "none";
+
+	newWindowDiv = draggedElement.cloneNode(true);
     newWindowDiv.className = "edit_container col drag_object";
     //newWindowDiv.classList.add("drag_object");
 
@@ -189,29 +317,19 @@ function DragObject(e, draggedElement) {
     pos3 = e.clientX;
     pos4 = e.clientY;
 
-    document.onmouseup = closeDragElement;
+    document.onmouseup = function() {
+      if(!overAcceptor) {
+        originalParent.style.display = "flex";
+      }
+      closeDragElement(true);
+    };
     document.onmousemove = elementDrag;
-}
-
-function FullElementReset() {
-    for (var key in elementLookup) {
-        if (elementLookup.hasOwnProperty(key)) {
-            var value = elementLookup[key];
-
-            var lookupReset = section_container.querySelectorAll("#" + value.acceptor);
-            lookupReset.forEach(function(resetZone) {
-                resetZone.onmouseover = null;
-                resetZone.onmouseleave = null;
-                resetZone.onmouseout = null;
-                resetZone.onmouseup = null;
-                resetZone.style.backgroundColor = acceptorColourLookup[value.acceptor].default;
-            });
-        }
-    }
 }
 
 function BindTemplateButton(element) {
     element.onmousedown = function(event) {
+        FullElementNeutral();
+
         activeDragElementType = element.id;
         DragTemplateObject(event, element);
 
@@ -222,6 +340,8 @@ function BindTemplateButton(element) {
         console.log(dropZones);
 
         dropZones.forEach(function(dropZone) {
+            dropZone.style.backgroundColor = acceptorColourLookup[elementLookup[activeDragElementType].acceptor].default;
+
             dropZone.onmouseover = function() {
                 dropZone.style.backgroundColor = acceptorColourLookup[elementLookup[activeDragElementType].acceptor].hover;
             }
@@ -286,9 +406,15 @@ function BindTemplateButton(element) {
                                             .AddChild("div", null, "row")
                                             .AddChild("div", elementLookup[activeDragElementType].moveDetectorName, null, true);
                                             
-                newSectionContainerBuilder.Custom(BindOnMouseDown, DragObject, newSectionContainerBuilder.currentElement.parentElement.parentElement)
-                                            .StepToParent_NTimes(1)
-                                            .Custom(AddInput, "text", "Name", elementLookup[activeDragElementType].nameField, "editor_input_box", false, null).ReturnResult();
+                newSectionContainerBuilder
+                .Custom(
+                  BindOnMouseDown, 
+                  BindDraggedElement, 
+                  newSectionContainerBuilder.currentElement.id, 
+                  newSectionContainerBuilder.currentElement.parentElement.parentElement, 
+                  newContainerElement)
+                .StepToParent_NTimes(1)
+                .Custom(AddInput, "text", "Name", elementLookup[activeDragElementType].nameField, "editor_input_box", false, null).ReturnResult();
 
                 var newSectionContainer = newSectionContainerBuilder.ReturnResult();
 

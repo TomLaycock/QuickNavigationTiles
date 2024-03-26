@@ -15,7 +15,7 @@ function SetAttribute(builder, attributeName, attributeValue) { builder.currentE
 
 function BindOnMouseDown(builder, boundFunction, ...boundVars) {
     builder.currentElement.onmousedown = function(event) {
-        boundFunction(event, boundVars);
+        boundFunction(event, ...boundVars);
     };
 
     return builder;
