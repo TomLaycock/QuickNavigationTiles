@@ -1,0 +1,64 @@
+[
+  {
+    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
+    "Method": "CheckLoggedIn",
+    "RelativePath": "User/CheckLoggedIn",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
+    "Method": "CheckLoggedIn2",
+    "RelativePath": "User/CheckLoggedIn2",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
+    "Method": "Login",
+    "RelativePath": "User/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "QuickNavigationTiles.Models.Login.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
+    "Method": "Logout",
+    "RelativePath": "User/Logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
+    "Method": "Register",
+    "RelativePath": "User/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registrationRequest",
+        "Type": "QuickNavigationTiles.Models.Registration.RegistrationInputs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

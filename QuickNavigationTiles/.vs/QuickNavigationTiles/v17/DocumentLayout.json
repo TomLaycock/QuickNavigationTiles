@@ -1,0 +1,449 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\controllers\\controllerbasewrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\controllers\\controllerbasewrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\utility\\attributes\\loggedinattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\utility\\attributes\\loggedinattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\models\\session\\sessiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\models\\session\\sessiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\models\\device\\deviceinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\models\\device\\deviceinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\models\\user\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\models\\user\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\models\\login\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\models\\login\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\models\\registration\\registrationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\models\\registration\\registrationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\factories\\databaseconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\factories\\databaseconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\factories\\interfaces\\idatabaseconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\factories\\interfaces\\idatabaseconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\quicknavigationtiles.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\models\\device\\deviceinsertrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\models\\device\\deviceinsertrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\models\\registration\\registrationinputs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\models\\registration\\registrationinputs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\models\\session\\sessioninsertrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\models\\session\\sessioninsertrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\models\\login\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\models\\login\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\utility\\password\\saltgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\utility\\password\\saltgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\utility\\password\\hashgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\utility\\password\\hashgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\quicknavigationtiles.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|d:\\github repositories\\quicknavigationtiles\\quicknavigationtiles\\quicknavigationtiles\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{80D18033-5DA5-46E2-85AC-A03E2E1F3BAC}|QuickNavigationTiles\\QuickNavigationTiles.csproj|solutionrelative:quicknavigationtiles\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ControllerBaseWrapper.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Controllers\\ControllerBaseWrapper.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Controllers\\ControllerBaseWrapper.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Controllers\\ControllerBaseWrapper.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Controllers\\ControllerBaseWrapper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAcAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T19:50:09.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoggedInAttribute.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Utility\\Attributes\\LoggedInAttribute.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Utility\\Attributes\\LoggedInAttribute.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Utility\\Attributes\\LoggedInAttribute.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Utility\\Attributes\\LoggedInAttribute.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAAAAoAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T19:49:10.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\User\\UserDto.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Models\\User\\UserDto.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\User\\UserDto.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Models\\User\\UserDto.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAYAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:36:00.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Services\\UserService.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Services\\UserService.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Services\\UserService.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAAAGcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T09:47:05.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Repositories\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Repositories\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Repositories\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Repositories\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T09:45:35.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Repositories\\UserRepository.cs",
+              "ViewState": "AQIAAFkAAAAAAAAAAAAAAGUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T09:45:21.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Controllers\\UserController.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAAFgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-30T19:51:02.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Login\\LoginDto.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Models\\Login\\LoginDto.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Login\\LoginDto.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Models\\Login\\LoginDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T13:31:54.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "RegistrationInputs.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Registration\\RegistrationInputs.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Models\\Registration\\RegistrationInputs.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Registration\\RegistrationInputs.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Models\\Registration\\RegistrationInputs.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAIAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T09:22:24.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IDatabaseConnectionFactory.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Factories\\Interfaces\\IDatabaseConnectionFactory.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Factories\\Interfaces\\IDatabaseConnectionFactory.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Factories\\Interfaces\\IDatabaseConnectionFactory.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Factories\\Interfaces\\IDatabaseConnectionFactory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T09:44:45.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DatabaseConnectionFactory.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Factories\\DatabaseConnectionFactory.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Factories\\DatabaseConnectionFactory.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Factories\\DatabaseConnectionFactory.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Factories\\DatabaseConnectionFactory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T09:42:35.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DeviceInfoDto.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Device\\DeviceInfoDto.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Models\\Device\\DeviceInfoDto.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Device\\DeviceInfoDto.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Models\\Device\\DeviceInfoDto.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAIAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T14:52:57.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SessionDto.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Session\\SessionDto.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Models\\Session\\SessionDto.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Session\\SessionDto.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Models\\Session\\SessionDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T16:35:02.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Services\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Services\\Interfaces\\IUserService.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Services\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Services\\Interfaces\\IUserService.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAjwBYAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T09:47:18.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RegistrationRequest.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Registration\\RegistrationRequest.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Models\\Registration\\RegistrationRequest.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Registration\\RegistrationRequest.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Models\\Registration\\RegistrationRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:53:26.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "QuickNavigationTiles",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles.csproj",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\QuickNavigationTiles.csproj",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles.csproj",
+              "RelativeToolTip": "QuickNavigationTiles\\QuickNavigationTiles.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-31T18:32:08.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DeviceInsertRequest.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Device\\DeviceInsertRequest.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Models\\Device\\DeviceInsertRequest.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Device\\DeviceInsertRequest.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Models\\Device\\DeviceInsertRequest.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAIAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T14:51:20.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Login\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Models\\Login\\LoginRequest.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Login\\LoginRequest.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Models\\Login\\LoginRequest.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAIAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:40:27.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SessionInsertRequest.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Session\\SessionInsertRequest.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Models\\Session\\SessionInsertRequest.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Models\\Session\\SessionInsertRequest.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Models\\Session\\SessionInsertRequest.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAIAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T17:16:17.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SaltGenerator.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Utility\\Password\\SaltGenerator.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Utility\\Password\\SaltGenerator.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Utility\\Password\\SaltGenerator.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Utility\\Password\\SaltGenerator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T13:11:32.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "HashGenerator.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Utility\\Password\\HashGenerator.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Utility\\Password\\HashGenerator.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Utility\\Password\\HashGenerator.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Utility\\Password\\HashGenerator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T13:17:19.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "QuickNavigationTiles.http",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles.http",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\QuickNavigationTiles.http",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles.http",
+              "RelativeToolTip": "QuickNavigationTiles\\QuickNavigationTiles.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-03-30T19:52:02.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\appsettings.json",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\appsettings.json",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\appsettings.json",
+              "RelativeToolTip": "QuickNavigationTiles\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-30T19:52:06.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Program.cs",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Program.cs",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Program.cs",
+              "RelativeToolTip": "QuickNavigationTiles\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-30T16:51:53.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "QuickNavigationTiles\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Github Repositories\\QuickNavigationTiles\\QuickNavigationTiles\\QuickNavigationTiles\\Properties\\launchSettings.json",
+              "RelativeToolTip": "QuickNavigationTiles\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-30T20:01:12.847Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

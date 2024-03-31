@@ -1,0 +1,6 @@
+@QuickNavigationTiles_HostAddress = http://localhost:5170
+
+GET {{QuickNavigationTiles_HostAddress}}/user/
+Accept: application/json
+
+###
