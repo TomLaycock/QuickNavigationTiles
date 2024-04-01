@@ -81,10 +81,10 @@ namespace QuickNavigationTiles.Controllers
             }
             catch (Exception ex)
             {
-
+                return BadRequest(ex);
             }
 
-            return BadRequest();
+            return BadRequest("Failed");
         }
 
         [LoggedIn]
@@ -108,6 +108,36 @@ namespace QuickNavigationTiles.Controllers
             }
 
             return BadRequest();
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> TestAction()
+        {
+            return Ok("something");
+        }
+
+        [HttpGet("[action]")]
+        public IActionResult TestAction2()
+        {
+            return Ok("something2");
+        }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> TestAction3()
+        {
+            return Ok("something3");
+        }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> TestAction4([FromBody] string testValue)
+        {
+            return Ok(testValue);
+        }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> TestAction5(TestClass testValue)
+        {
+            return Ok(testValue);
         }
 
         // Examples for checking if a user is logged into their account
@@ -155,5 +185,10 @@ namespace QuickNavigationTiles.Controllers
         }
 
         #endregion
+    }
+
+    public class TestClass
+    {
+        public string? SomeValue { get; set; }
     }
 }

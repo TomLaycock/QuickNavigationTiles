@@ -1,0 +1,196 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <button onclick="Login()">Login</button>
+        <button onclick="Logout()">Logout</button>
+        <button onclick="TestPoint()">TestPoint</button>
+        <button onclick="TestPoint2()">TestPoint2</button>
+        <button onclick="TestPoint3()">TestPoint3</button>
+        <button onclick="TestPoint4()">TestPoint4</button>
+        <button onclick="TestPoint5()">TestPoint5</button>
+
+        <script>
+            function Login() {
+                console.log("Logging in");
+
+                const url = 'http://localhost:8080/user/Login';
+                const data = {
+                LoginCredential: 'Test',
+                Password: 'Test'
+                };
+
+                fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                body: JSON.stringify(data)
+                })
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+                })
+                .then(data => {
+                console.log('Success:', data);
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                });
+            };
+
+            function Logout() {
+                console.log("Logging out");
+
+                const url = 'http://localhost:8080/user/Logout';
+
+                fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                })
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+                })
+                .then(data => {
+                console.log('Success:', data);
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                });
+            }
+
+            function TestPoint() {
+                console.log("Testing");
+
+                const url = 'http://localhost:8080/user/TestAction';
+
+                fetch(url, {
+                method: 'GET',
+                mode: 'no-cors',
+                })
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+                })
+                .then(data => {
+                console.log('Success:', data);
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                });
+            }
+
+            function TestPoint2() {
+                console.log("Testing2");
+
+                const url = 'http://localhost:8080/user/TestAction2';
+
+                fetch(url, {
+                method: 'GET',
+                mode: 'no-cors',
+                })
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+                })
+                .then(data => {
+                console.log('Success:', data);
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                });
+            }
+
+            function TestPoint3() {
+                console.log("Testing3");
+
+                const url = 'http://localhost:8080/user/TestAction3';
+
+                fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                })
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+                })
+                .then(data => {
+                console.log('Success:', data);
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                });
+            }
+
+            function TestPoint4() {
+                console.log("Testing4");
+
+                const url = 'http://localhost:8080/user/TestAction4';
+
+                fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: "mystring"
+                })
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+                })
+                .then(data => {
+                console.log('Success:', data);
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                });
+            };
+
+            function TestPoint5() {
+                console.log("Testing5");
+
+                const url = 'http://localhost:8080/user/TestAction5';
+                const data = {
+                SomeValue: 'Testing5Value'
+                };
+
+                fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                body: JSON.stringify(data)
+                })
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+                })
+                .then(data => {
+                console.log('Success:', data);
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                });
+            };
+        </script>
+    </body>
+</html>

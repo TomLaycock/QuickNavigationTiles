@@ -15,6 +15,18 @@ namespace QuickNavigationTiles
 
             builder.Services.AddControllers();
 
+            //builder.Services.AddNewtonsoftJson();
+            //builder.Services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowAllOrigins",
+            //        builder =>
+            //        {
+            //            builder.AllowAnyOrigin()
+            //           .AllowAnyHeader()
+            //           .AllowAnyMethod();
+            //        });
+            //});
+
             builder.Host.ConfigureServices((HostBuilderContext context, IServiceCollection services) =>
             {
                 services.AddScoped<IDatabaseConnectionFactory, DatabaseConnectionFactory>();
@@ -27,6 +39,8 @@ namespace QuickNavigationTiles
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
+
+            //app.UseCors("AllowAllOrigins");
 
             app.Run();
         }
