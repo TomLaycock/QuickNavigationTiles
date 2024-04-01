@@ -1,26 +1,6 @@
 [
   {
     "ContainingType": "QuickNavigationTiles.Controllers.UserController",
-    "Method": "CheckLoggedIn",
-    "RelativePath": "User/CheckLoggedIn",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
-    "Method": "CheckLoggedIn2",
-    "RelativePath": "User/CheckLoggedIn2",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
     "Method": "Login",
     "RelativePath": "User/Login",
     "HttpMethod": "POST",
@@ -56,6 +36,68 @@
       {
         "Name": "registrationRequest",
         "Type": "QuickNavigationTiles.Models.Registration.RegistrationInputs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
+    "Method": "TestAction",
+    "RelativePath": "User/TestAction",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
+    "Method": "TestAction2",
+    "RelativePath": "User/TestAction2",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
+    "Method": "TestAction3",
+    "RelativePath": "User/TestAction3",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
+    "Method": "TestAction4",
+    "RelativePath": "User/TestAction4",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "testValue",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuickNavigationTiles.Controllers.UserController",
+    "Method": "TestAction5",
+    "RelativePath": "User/TestAction5",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "testValue",
+        "Type": "QuickNavigationTiles.Controllers.TestClass",
         "IsRequired": true
       }
     ],

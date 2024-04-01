@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuickNavigationTiles")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a03c72e709155588b8b3e3f7888f652b342328e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b93e192c1354957d79f48e418157533cc87060da")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuickNavigationTiles")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuickNavigationTiles")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
