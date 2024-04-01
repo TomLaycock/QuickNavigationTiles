@@ -15,7 +15,7 @@
             function Login() {
                 console.log("Logging in");
 
-                const url = 'http://localhost:8080/user/Login';
+                const url = 'https://localhost:7074/user/Login';
                 const data = {
                 LoginCredential: 'Test',
                 Password: 'Test'
@@ -46,7 +46,7 @@
             function Logout() {
                 console.log("Logging out");
 
-                const url = 'http://localhost:8080/user/Logout';
+                const url = 'https://localhost:7074/user/Logout';
 
                 fetch(url, {
                 method: 'POST',
@@ -69,7 +69,7 @@
             function TestPoint() {
                 console.log("Testing");
 
-                const url = 'http://localhost:8080/user/TestAction';
+                const url = 'https://localhost:7074/user/TestAction';
 
                 fetch(url, {
                 method: 'GET',
@@ -92,7 +92,7 @@
             function TestPoint2() {
                 console.log("Testing2");
 
-                const url = 'http://localhost:8080/user/TestAction2';
+                const url = 'https://localhost:7074/user/TestAction2';
 
                 fetch(url, {
                 method: 'GET',
@@ -115,7 +115,7 @@
             function TestPoint3() {
                 console.log("Testing3");
 
-                const url = 'http://localhost:8080/user/TestAction3';
+                const url = 'https://localhost:7074/user/TestAction3';
 
                 fetch(url, {
                 method: 'POST',
@@ -138,7 +138,7 @@
             function TestPoint4() {
                 console.log("Testing4");
 
-                const url = 'http://localhost:8080/user/TestAction4';
+                const url = 'https://localhost:7074/user/TestAction4';
 
                 fetch(url, {
                 method: 'POST',
@@ -165,7 +165,7 @@
             function TestPoint5() {
                 console.log("Testing5");
 
-                const url = 'http://localhost:8080/user/TestAction5';
+                const url = 'https://localhost:7074/user/TestAction5';
                 const data = {
                 SomeValue: 'Testing5Value'
                 };
