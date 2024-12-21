@@ -11,7 +11,7 @@ using LoginRequest = QuickNavigationTiles.Models.Login.LoginRequest;
 namespace QuickNavigationTiles.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UserController : ControllerBaseWrapper
     {
         private readonly ILogger<UserController> _logger;

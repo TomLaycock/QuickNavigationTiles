@@ -15,17 +15,16 @@ namespace QuickNavigationTiles
 
             builder.Services.AddControllers();
 
-            //builder.Services.AddNewtonsoftJson();
-            //builder.Services.AddCors(options =>
-            //{
-            //    options.AddPolicy("AllowAllOrigins",
-            //        builder =>
-            //        {
-            //            builder.AllowAnyOrigin()
-            //           .AllowAnyHeader()
-            //           .AllowAnyMethod();
-            //        });
-            //});
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            });
 
             builder.Host.ConfigureServices((HostBuilderContext context, IServiceCollection services) =>
             {
@@ -38,9 +37,9 @@ namespace QuickNavigationTiles
 
             app.UseHttpsRedirection();
             app.UseAuthorization();
-            app.MapControllers();
+            app.UseCors("AllowOrigin");
 
-            //app.UseCors("AllowAllOrigins");
+            app.MapControllers();
 
             app.Run();
         }
