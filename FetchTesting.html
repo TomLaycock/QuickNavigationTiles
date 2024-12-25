@@ -3,6 +3,7 @@
 
     </head>
     <body>
+        <button onclick="LoginOther()">Login</button>
         <button onclick="Login()">Login</button>
         <button onclick="Logout()">Logout</button>
         <button onclick="TestPoint()">TestPoint</button>
@@ -10,36 +11,56 @@
         <button onclick="TestPoint3()">TestPoint3</button>
         <button onclick="TestPoint4()">TestPoint4</button>
         <button onclick="TestPoint5()">TestPoint5</button>
+        <button onclick="GetProfile()">GetProfile</button>
 
         <script>
+            function LoginOther() {
+                console.log("Logging in");
+
+                const url = 'https://localhost:7230/api/auth/authenticate';
+                const data = {
+                Username: 'Test',
+                Password: 'Test'
+                };
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data); // Here you can handle the response from the API
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            };
+
             function Login() {
                 console.log("Logging in");
 
-                const url = 'https://localhost:7074/user/Login';
+                const url = 'https://localhost:7074/api/user/Login';
                 const data = {
                 LoginCredential: 'Test',
                 Password: 'Test'
                 };
 
                 fetch(url, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
-                body: JSON.stringify(data)
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
                 })
-                .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-                })
+                .then(response => response.json())
                 .then(data => {
-                console.log('Success:', data);
+                    console.log(data); // Here you can handle the response from the API
                 })
                 .catch(error => {
-                console.error('Error:', error);
+                    console.error('Error:', error);
                 });
             };
 
@@ -115,17 +136,19 @@
             function TestPoint3() {
                 console.log("Testing3");
 
-                const url = 'https://localhost:7074/user/TestAction3';
+                const url = 'https://localhost:7074/api/user/TestAction3';
 
                 fetch(url, {
                 method: 'POST',
-                mode: 'no-cors',
+                //mode: 'no-cors',
                 })
                 .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
+                    console.log(response);
+                    //console.log(response.json());
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
                 })
                 .then(data => {
                 console.log('Success:', data);
@@ -138,21 +161,26 @@
             function TestPoint4() {
                 console.log("Testing4");
 
-                const url = 'https://localhost:7074/user/TestAction4';
+                const url = 'https://localhost:7074/api/user/TestAction4';
+                const data = {
+                    testValue: 'Testing4Value'
+                };
 
                 fetch(url, {
                 method: 'POST',
-                mode: 'no-cors',
+                //mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: "mystring"
+                //body: "mystring"
+                body: JSON.stringify('Testing4Value')
                 })
                 .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
+                    console.log(response);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
                 })
                 .then(data => {
                 console.log('Success:', data);
@@ -165,24 +193,55 @@
             function TestPoint5() {
                 console.log("Testing5");
 
-                const url = 'https://localhost:7074/user/TestAction5';
+                const url = 'https://localhost:7074/api/user/TestAction5';
                 const data = {
                 SomeValue: 'Testing5Value'
                 };
 
                 fetch(url, {
                 method: 'POST',
-                mode: 'no-cors',
+                //mode: 'no-cors',
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    //'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
                 })
                 .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    console.log(response);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                console.log('Success:', data);
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                });
+            };
+
+
+            function GetProfile() {
+                console.log("GetProfile");
+
+                const url = 'https://localhost:7074/api/profile/get';
+
+                fetch(`${url}?${"00000000-0000-0000-0000-000000000000"}`, {
+                method: 'GET',
+                //mode: 'no-cors',
+                headers: {
+                    //'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'application/json'
                 }
-                return response.json();
+                })
+                .then(response => {
+                    console.log(response);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
                 })
                 .then(data => {
                 console.log('Success:', data);

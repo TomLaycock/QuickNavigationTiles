@@ -45,7 +45,7 @@ namespace QuickNavigationTiles.Controllers
             return BadRequest();
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequest loginRequest)
         {
             try
@@ -125,13 +125,19 @@ namespace QuickNavigationTiles.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> TestAction3()
         {
-            return Ok("something3");
+            return Ok(new
+            {
+                body = new {
+                    value = "TestAction3"
+                }
+            });
+            //return Ok("something3");
         }
 
         [HttpPost("[action]")]
         public async Task<IActionResult> TestAction4([FromBody] string testValue)
         {
-            return Ok(testValue);
+            return Ok(new { testValue });
         }
 
         [HttpPost("[action]")]
